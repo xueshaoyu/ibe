@@ -15,12 +15,12 @@ namespace IBE
             Fq - polje nad kojim se računa
             E(Fq) - grupa u kojoj je krivulja E nad poljem Fq
             k - red grupe E(Fq) - 115792089237316195423570985008687907852837564279074904382605163141518161494337
-            H1 - sha256(<string>) mod p -> x točka krivulje; y se izračuna
+            H1 - sha256(<string>) mod p -> x 值; y 值
             H2 - ripemd-120 : točka iz polja -> niz bita mod p
             e - Weilovo uparivanje
             P - 随机曲线点 (x1,y1) - 起点
             Ppub - 公钥 - Ppub = sP
-            s - MASTER 秘钥 - random iz Zq i != 0
+            s - MASTER 秘钥 - 随机数 iz Zq i != 0
         */
 
         // 随机 P iz E(Fq) - G1
@@ -68,13 +68,15 @@ namespace IBE
 
             // p i q
             // p i q
+            //p = new BigInteger("115792089237316195423570985008687907853269984665640564039457584007908834671663", 10);
             p = new BigInteger("115792089237316195423570985008687907853269984665640564039457584007908834671663", 10);
-            //q = p.Pow(n);
+            //q = p.Pow(3);
+            //q = p.Pow(1);
             q = p;
 
             k = new BigInteger("115792089237316195423570985008687907852837564279074904382605163141518161494337", 10);
 
-            // E - krivulja secp256k1 - y ^ 2 = x ^ 3 + 0*x + 7
+            // E - 曲线公式 secp256k1 - y ^ 2 = x ^ 3 + 0*x + 7
             BigInteger a = new BigInteger("0", 10);
             BigInteger b = new BigInteger("7", 10);
             E = new FpCurve(q, a, b);
@@ -132,8 +134,11 @@ namespace IBE
             }
 
             //  y^2 = x^3 + 117050x^2 + x
+            //	            y ^ 2 = x ^ 3 + 229969x ^ 2 + x 这个公式不容易出现解不出的情况
             BigInteger x = GeneralFunctions.H1hash(ID, p);
-            BigInteger y = x.Pow(3).Add(x.Pow(2).Multiply(new BigInteger("117050", 10))).Add(x).Pow(2).ModInverse(p);
+            BigInteger y = x.Pow(3).Add(x.Pow(2).Multiply(new BigInteger("229969", 10))).Add(x).Pow(2).ModInverse(p);
+            // BigInteger y = x.Pow(3).Add(x.Pow(2).Multiply(new BigInteger("117050", 10))).Add(x).Pow(2).ModInverse(p);
+            //BigInteger y = x.Pow(3).Add(x.Pow(2).Multiply(new BigInteger("0", 10))).Add(x).Pow(2).ModInverse(p);
 
             FpFieldElement x_Qid = new FpFieldElement(q, x);
             FpFieldElement y_Qid = new FpFieldElement(q, y);

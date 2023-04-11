@@ -7,6 +7,7 @@ using Org.BouncyCastle.Utilities.Encoders;
 using System;
 using System.IO;
 using System.Security.Cryptography;
+using System.Threading;
 
 namespace IBE
 {
@@ -148,21 +149,42 @@ namespace IBE
         private static void test()
         {
             Console.Out.WriteLine("开始!");
+            Setup setup; FpPoint d_id;
+            while (true)
+            {
+                // 配置前置条件
+                setup = new Setup();
+                // 解密密钥
+                d_id = setup.Exctract("ime.prezime@mail.hr");
 
-            // 配置前置条件
-            Setup setup = new Setup();
+                Encrypt e = new Encrypt("ime.prezime@mail.hr", setup.GetP(), setup.GetPpub(), setup.p, setup.E, setup.k);
+
+                string msg = "moram porati posluku";
+                Cypher c = e.GetCypher(msg);
+
+                Console.Out.WriteLine("原消息: \"" + msg + "\"");
+                Console.Out.WriteLine("加密后消息: \"" + c.V + "\"");
+                Console.Out.WriteLine("点: \"(" + c.U.X.ToBigInteger().ToString(16) + " ,\n\t" + c.U.Y.ToBigInteger().ToString(16) + "\"");
+                Decrypt d = new Decrypt(d_id, setup.p, setup.k);
+                string demsg = d.GetMessage(c);
+                Console.Out.WriteLine("解密: \"" + demsg + "\"");
+                if (demsg == msg)
+                {
+                    break;
+                }
+            }
             // 解密密钥
-            FpPoint d_id = setup.Exctract("ime.prezime@mail.hr");
-
-            Encrypt e = new Encrypt("ime.prezime@mail.hr", setup.GetP(), setup.GetPpub(), setup.p, setup.E, setup.k);
-
-            string msg = "moram porati posluku";
-            Cypher c = e.GetCypher(msg);
-
-            Console.Out.WriteLine("原消息: \"" + msg + "\"");
-            Console.Out.WriteLine("加密后消息: \"" + c.V + "\"");
-            Console.Out.WriteLine("点: \"(" + c.U.X.ToBigInteger().ToString(16) + " ,\n\t" + c.U.Y.ToBigInteger().ToString(16) + "\"");
-            decode(c, "ime.prezime@mail.hr", setup);
+            // FpPoint d_id1 = setup.Exctract("ime.prezime@mail.hr");
+            while (true)
+            {
+                var msgtt = "DDDmoram porati poslukuAAA";
+                Encrypt e = new Encrypt("ime.prezime@mail.hr", setup.GetP(), setup.GetPpub(), setup.p, setup.E, setup.k);
+                Cypher c = e.GetCypher(msgtt);
+                Decrypt d = new Decrypt(d_id, setup.p, setup.k);
+                string demsg = d.GetMessage(c);
+                Console.Out.WriteLine($"源：{c.V},解：{demsg},结果:{msgtt == demsg}");
+                Thread.Sleep(10);
+            }
             //Decrypt d = new Decrypt(d_id, setup.p, setup.k);
             //string demsg = d.GetMessage(c);
 
