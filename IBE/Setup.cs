@@ -7,9 +7,9 @@ namespace IBE
 {
     public class Setup
     {
-        // definirati što se koristi
+        // 定义它的用途
         /*
-            E - krivulja secp256k1 - y^2 = x^3+0*x+7 - http://safecurves.cr.yp.to/equation.html
+            E - 曲线 secp256k1 - y^2 = x^3+0*x+7 - http://safecurves.cr.yp.to/equation.html
             q - p /// p^n
             p - prost broj - za secp256k1 je 2^256 - 2^32 - 977  = 115792089237316195423570985008687907853269984665640564039457584007908834671663
             Fq - polje nad kojim se računa
@@ -18,13 +18,13 @@ namespace IBE
             H1 - sha256(<string>) mod p -> x točka krivulje; y se izračuna
             H2 - ripemd-120 : točka iz polja -> niz bita mod p
             e - Weilovo uparivanje
-            P - random točka sa krivulje (x1,y1) - početna točka
-            Ppub - JAVNI KLJUČ - Ppub = sP
-            s - MASTER TAJNI KLJUČ - random iz Zq i != 0
+            P - 随机曲线点 (x1,y1) - 起点
+            Ppub - 公钥 - Ppub = sP
+            s - MASTER 秘钥 - random iz Zq i != 0
         */
 
-        // random P iz E(Fq) - G1
-        // za secp256k1 se preporuča: P = (55066263022277343669578718895168534326250603453777594175500187360389116729240,
+        // 随机 P iz E(Fq) - G1
+        // 建议使用secp256k1: P = (55066263022277343669578718895168534326250603453777594175500187360389116729240,
         //                             32670510020758816978083085130507043184471273380659243275938904335757337482424)
         // BigInteger(<broj>,<baza>)
         private FpPoint P;
@@ -41,25 +41,32 @@ namespace IBE
         // p
         public BigInteger p { get; }
 
-        // krivulja
+        /// <summary>
+        /// 曲线
+        /// </summary>
         public FpCurve E { get; }
 
-        // random s iz Zq*
-        private int s = 0;
+        /// <summary>
+        /// 随机数
+        /// </summary>
+        private int s = 1282377611;
 
-        // javni ključ
+        /// <summary>
+        /// 公钥
+        /// </summary>
         private FpPoint Ppub;
 
         public Setup()
         {
             n = 3;
 
-            do
-            {
-                Random r = new Random();
-                s = r.Next(1, int.MaxValue - 1);
-            } while (s == 0);
+            //do
+            //{
+            //    Random r = new Random();
+            //    s = r.Next(1, int.MaxValue - 1);
+            //} while (s == 0);
 
+            // p i q
             // p i q
             p = new BigInteger("115792089237316195423570985008687907853269984665640564039457584007908834671663", 10);
             //q = p.Pow(n);
@@ -83,26 +90,45 @@ namespace IBE
             BigInteger mtp = new BigInteger(s.ToString(), 10);
 
             Ppub = (FpPoint)P.Multiply(mtp);
-
+            randomKey = s;
+            Console.WriteLine(randomKey);
             File.WriteAllText("mk", s.ToString() + Environment.NewLine);
         }
 
+        public int randomKey;
+
+        /// <summary>
+        /// 获取私钥
+        /// </summary>
+        /// <returns></returns>
         public FpPoint GetP()
         {
             return P;
         }
 
+        /// <summary>
+        /// 获取公钥
+        /// </summary>
+        /// <returns></returns>
         public FpPoint GetPpub()
         {
             return Ppub;
         }
 
+        /// <summary>
+        /// 获取私钥
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <param name="decrypt">是否获取解密秘钥</param>
+        /// <returns></returns>
         public FpPoint Exctract(string ID, bool decrypt = false)
         {
             if (decrypt)
             {
                 string sStr = File.ReadAllText("mk");
                 s = int.Parse(sStr);
+                s = randomKey;
+                Console.WriteLine(randomKey);
             }
 
             //  y^2 = x^3 + 117050x^2 + x
@@ -115,7 +141,7 @@ namespace IBE
 
             FpPoint d_id = (FpPoint)Qid.Multiply(new BigInteger(s.ToString(), 10));
 
-            // privatni ključ
+            // 私钥
             return d_id;
         }
     }

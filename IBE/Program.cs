@@ -1,7 +1,12 @@
-﻿using Org.BouncyCastle.Math;
+﻿using Org.BouncyCastle.Asn1.X9;
+using Org.BouncyCastle.Crypto.Parameters;
+using Org.BouncyCastle.Math;
 using Org.BouncyCastle.Math.EC;
+using Org.BouncyCastle.Security;
+using Org.BouncyCastle.Utilities.Encoders;
 using System;
 using System.IO;
+using System.Security.Cryptography;
 
 namespace IBE
 {
@@ -10,8 +15,8 @@ namespace IBE
         private static void Main(string[] args)
         {
             string id = "ime.prezime@mail.hr";
-            string poruka = "moram porati posluku";
-            Cypher sifrat;
+            string messsage = "moram porati posluku";
+            Cypher cypher;
 
             if (args.Length < 2)
             {
@@ -21,7 +26,7 @@ namespace IBE
                 return;
             }
 
-            // namjesti postavke prvo
+            // 配置前置条件
             Setup setup = new Setup();
 
             if (args[0] == "-f")
@@ -29,7 +34,7 @@ namespace IBE
                 string put = args[1];
                 if (!File.Exists(put))
                 {
-                    poruka = File.ReadAllText(put);
+                    messsage = File.ReadAllText(put);
                     if (args.Length != 3)
                     {
                         upute();
@@ -38,7 +43,7 @@ namespace IBE
 
                     id = args[args.Length - 1];
 
-                    encode(poruka, id, setup);
+                    encode(messsage, id, setup);
                 }
                 else
                 {
@@ -84,30 +89,36 @@ namespace IBE
 
                 FpPoint point = new FpPoint(setup.E, x, y);
 
-                sifrat = new Cypher { U = point, V = sif };
+                cypher = new Cypher { U = point, V = sif };
 
-                decode(sifrat, id, setup);
+                decode(cypher, id, setup);
             }
             else
             {
-                poruka = "";
+                messsage = "";
                 for (int i = 1; i < args.Length - 2; i++)
                 {
-                    poruka += args[i] + " ";
+                    messsage += args[i] + " ";
                 }
-                poruka += args[args.Length - 2];
+                messsage += args[args.Length - 2];
 
                 id = args[args.Length - 1];
 
-                encode(poruka, id, setup);
+                encode(messsage, id, setup);
             }
 
             Console.ReadKey();
         }
 
+        /// <summary>
+        ///  解密
+        /// </summary>
+        /// <param name="cypher"></param>
+        /// <param name="id"></param>
+        /// <param name="setup"></param>
         private static void decode(Cypher cypher, string id, Setup setup)
         {
-            // tajni ključ
+            // 秘钥
             FpPoint d_id = setup.Exctract(id, true);
 
             Decrypt d = new Decrypt(d_id, setup.p, setup.k);
@@ -116,59 +127,65 @@ namespace IBE
             Console.Out.WriteLine("decoded: \"" + msg + "\"");
         }
 
-        private static void encode(string poruka, string id, Setup setup)
+        /// <summary>
+        /// 加密
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="id"></param>
+        /// <param name="setup"></param>
+        private static void encode(string msg, string id, Setup setup)
         {
             Encrypt e = new Encrypt(id, setup.GetP(), setup.GetPpub(), setup.p, setup.E, setup.k);
 
-            Cypher c = e.GetCypher(poruka);
+            Cypher c = e.GetCypher(msg);
 
-            Console.Out.WriteLine("message: \"" + poruka + "\"");
+            Console.Out.WriteLine("message: \"" + msg + "\"");
             Console.Out.WriteLine("cypher: \"" + c.V + "\"");
             Console.Out.WriteLine("point: \"(" + c.U.X.ToBigInteger().ToString(16) + " ,\n\t" + c.U.Y.ToBigInteger().ToString(16) + "\"");
+            decode(c, id, setup);
         }
 
         private static void test()
         {
-            Console.Out.WriteLine("Start!");
+            Console.Out.WriteLine("开始!");
 
-            // namjesti postavke prvo
+            // 配置前置条件
             Setup setup = new Setup();
-
-            // tajni ključ
+            // 解密密钥
             FpPoint d_id = setup.Exctract("ime.prezime@mail.hr");
 
             Encrypt e = new Encrypt("ime.prezime@mail.hr", setup.GetP(), setup.GetPpub(), setup.p, setup.E, setup.k);
 
-            string poruka = "moram porati posluku";
-            Cypher c = e.GetCypher(poruka);
+            string msg = "moram porati posluku";
+            Cypher c = e.GetCypher(msg);
 
-            Console.Out.WriteLine("poruka: \"" + poruka + "\"");
-            Console.Out.WriteLine("sifrat: \"" + c.V + "\"");
-            Console.Out.WriteLine("tocka: \"(" + c.U.X.ToBigInteger().ToString(16) + " ,\n\t" + c.U.Y.ToBigInteger().ToString(16) + "\"");
+            Console.Out.WriteLine("原消息: \"" + msg + "\"");
+            Console.Out.WriteLine("加密后消息: \"" + c.V + "\"");
+            Console.Out.WriteLine("点: \"(" + c.U.X.ToBigInteger().ToString(16) + " ,\n\t" + c.U.Y.ToBigInteger().ToString(16) + "\"");
+            decode(c, "ime.prezime@mail.hr", setup);
+            //Decrypt d = new Decrypt(d_id, setup.p, setup.k);
+            //string demsg = d.GetMessage(c);
 
-            Decrypt d = new Decrypt(d_id, setup.p, setup.k);
-            string msg = d.GetMessage(c);
-
-            Console.Out.WriteLine("decoded: \"" + msg + "\"");
+            //Console.Out.WriteLine("解密: \"" + demsg + "\"");
 
             Console.ReadKey();
         }
 
         private static void upute()
         {
-            Console.WriteLine("Usage:\nIBE [-d -f] [message | path | cypher] [pointX pointY] ID");
-            Console.WriteLine("To encode: IBE [-f path] message ID");
-            Console.WriteLine("\t-f - if you are trying to encode file");
-            Console.WriteLine("\tpath - path to file");
-            Console.WriteLine("\tmessage - string to encode");
-            Console.WriteLine("\tID - identity to encode by");
-            Console.WriteLine("Examples:\n\tIBE this is secret message secret.mail@gmail.com");
+            Console.WriteLine("使用:\nIBE [-d -f] [message | path | cypher] [pointX pointY] ID");
+            Console.WriteLine("加密: IBE [-f path] message ID");
+            Console.WriteLine("\t-f - 加密文件");
+            Console.WriteLine("\tpath - 文件路径");
+            Console.WriteLine("\tmessage - 字符串加密");
+            Console.WriteLine("\tID - 身份id");
+            Console.WriteLine("示例:\n\tIBE 这是针对 secret.mail@gmail.com的加密消息");
             Console.WriteLine("\tIBE -f C:\\secret secret.mail@gmail.com");
             Console.WriteLine();
 
-            Console.WriteLine("To decode: IBE -d [-f path] cypher pointX pointY ID");
+            Console.WriteLine("解密: IBE -d [-f path] cypher pointX pointY ID");
             Console.WriteLine("\tpointX pointY - first and second point parameters of cypher");
-            Console.WriteLine("Example:\nIBE -d $OH$&)=9-*/=BDO adc70903da987d fed1ad07d6a8d6 secret.mail@gmail.com");
+            Console.WriteLine("示例:\nIBE -d $OH$&)=9-*/=BDO adc70903da987d fed1ad07d6a8d6 secret.mail@gmail.com");
 
             Console.ReadKey();
         }
