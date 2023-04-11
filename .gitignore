@@ -2,7 +2,7 @@
 # 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
 ################################################################################
 
-/.vs/IBE
-/packages
-/IBE/bin
-/IBE/obj
+/.vs/IBE/v16/.suo
+/IBE/obj/Debug/.NETFramework,Version=v4.5.2.AssemblyAttributes.cs
+/IBE/obj/
+/IBE/bin/
