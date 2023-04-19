@@ -1,6 +1,7 @@
 ﻿using Org.BouncyCastle.Math;
 using Org.BouncyCastle.Math.EC;
 using System;
+using System.Text;
 
 namespace IBE
 {

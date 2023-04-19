@@ -100,7 +100,8 @@ namespace IBE
                 {
                     return Q.X.Subtract(P.X).ToBigInteger();
                 }
-                else {
+                else
+                {
                     BigInteger l = R.Y.Subtract(P.Y).Divide((R.X.Subtract(P.X))).ToBigInteger();
 
                     return Q.Y.Subtract(P.Y).ToBigInteger().Subtract(l.Multiply((Q.X.Subtract(P.X).ToBigInteger())));

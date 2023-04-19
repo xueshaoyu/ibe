@@ -6,3 +6,14 @@ D:\Projekti\VSProjekti\IBE\IBE\obj\Debug\IBE.exe
 D:\Projekti\VSProjekti\IBE\IBE\obj\Debug\IBE.pdb
 D:\Projekti\VSProjekti\IBE\IBE\bin\Debug\BouncyCastle.Crypto.pdb
 D:\Projekti\VSProjekti\IBE\IBE\obj\Debug\IBE.csprojResolveAssemblyReference.cache
+D:\test\ibe\IBE\bin\Debug\IBE.exe.config
+D:\test\ibe\IBE\bin\Debug\IBE.exe
+D:\test\ibe\IBE\bin\Debug\IBE.pdb
+D:\test\ibe\IBE\bin\Debug\BouncyCastle.Crypto.dll
+D:\test\ibe\IBE\obj\Debug\IBE.csproj.AssemblyReference.cache
+D:\test\ibe\IBE\obj\Debug\IBE.csproj.SuggestedBindingRedirects.cache
+D:\test\ibe\IBE\obj\Debug\IBE.csproj.CoreCompileInputs.cache
+D:\test\ibe\IBE\obj\Debug\IBE.csproj.CopyComplete
+D:\test\ibe\IBE\obj\Debug\IBE.exe
+D:\test\ibe\IBE\obj\Debug\IBE.pdb
+D:\test\ibe\IBE\bin\Debug\BouncyCastle.Crypto.pdb
