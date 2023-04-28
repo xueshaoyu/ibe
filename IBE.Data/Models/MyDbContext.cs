@@ -9,7 +9,7 @@ namespace IBE.Data.Models
 {
     public class MyDbContext : DbContext
     {
-        public MyDbContext() : base(ConfigurationManager.AppSettings["SQLServerConnection"].ToString())
+        public MyDbContext() : base(ConfigurationManager.ConnectionStrings["SQLServerConnection"].ToString())
         {
         }
 
@@ -31,7 +31,8 @@ namespace IBE.Data.Models
         {
             if (Instance.Managers.Count() == 0)
             {
-                Instance.Managers.Add(new Manager() { Name = "超级管理员", LoginAccount = "admin", Password = "admin", AllowDelete = false }); ;
+                Instance.Managers.Add(new Manager() { Name = "超级管理员", LoginAccount = "admin", Password = "admin", AllowDelete = false });
+                Instance.SaveChanges();
             }
         }
     }

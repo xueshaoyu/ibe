@@ -1,1 +1,6 @@
-﻿
+﻿1初始化数据库 
+Enable-Migrations -ConnectionStringName "SQLServerConnection" -Force -Verbose
+
+2.更新数据库
+
+update-database -ConnectionStringName "SQLServerConnection" -Force -Verbose

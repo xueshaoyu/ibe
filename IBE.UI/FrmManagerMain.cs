@@ -21,11 +21,23 @@ namespace IBE.UI
         private void FrmManagerMain_Load(object sender, EventArgs e)
         {
             LoadManagerList();
+            LoadTeacherList();
+            LoadStudentList();
         }
 
         private void LoadManagerList()
         {
-            dataGridView1.DataSource = MyDbContext.Instance.Managers;
+            dataGridView1.DataSource = MyDbContext.Instance.Managers.Where(p => true).ToList();
+        }
+
+        private void LoadTeacherList()
+        {
+            dataGridView1.DataSource = MyDbContext.Instance.Teachers.Where(p => true).ToList();
+        }
+
+        private void LoadStudentList()
+        {
+            dataGridView1.DataSource = MyDbContext.Instance.Students.Where(p => true).ToList();
         }
 
         private void btnMagAdd_Click(object sender, EventArgs e)
