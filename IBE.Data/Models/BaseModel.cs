@@ -4,13 +4,16 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace IBE.Models
+namespace IBE.Data.Models
 {
     public class BaseModel
     {
+        /// <summary>
+        /// 主键
+        /// </summary>
         [Key]
         [ScaffoldColumn(false)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; } 
+        public int Id { get; set; }
     }
 }

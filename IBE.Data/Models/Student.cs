@@ -4,11 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IBE.Models
+namespace IBE.Data.Models
 {
-   public class Student:BaseModel
+    /// <summary>
+    /// 学生
+    /// </summary>
+    public class Student : BaseModel
     {
         public string Name { get; set; }
+        public string LoginAccount { get; set; }
+        public string Password { get; set; }
         public virtual Role Role { get; set; }
     }
 }

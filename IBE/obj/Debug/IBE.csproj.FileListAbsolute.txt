@@ -17,3 +17,7 @@ D:\test\ibe\IBE\obj\Debug\IBE.csproj.CopyComplete
 D:\test\ibe\IBE\obj\Debug\IBE.exe
 D:\test\ibe\IBE\obj\Debug\IBE.pdb
 D:\test\ibe\IBE\bin\Debug\BouncyCastle.Crypto.pdb
+D:\test\ibe\IBE\bin\Debug\EntityFramework.dll
+D:\test\ibe\IBE\bin\Debug\EntityFramework.SqlServer.dll
+D:\test\ibe\IBE\bin\Debug\EntityFramework.xml
+D:\test\ibe\IBE\bin\Debug\EntityFramework.SqlServer.xml
