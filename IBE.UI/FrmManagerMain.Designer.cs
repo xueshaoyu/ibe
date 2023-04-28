@@ -160,6 +160,7 @@
             this.btnTeacherDelete.TabIndex = 7;
             this.btnTeacherDelete.Text = "删除";
             this.btnTeacherDelete.UseVisualStyleBackColor = true;
+            this.btnTeacherDelete.Click += new System.EventHandler(this.btnTeacherDelete_Click);
             // 
             // btnTeacherEdit
             // 
@@ -169,6 +170,7 @@
             this.btnTeacherEdit.TabIndex = 6;
             this.btnTeacherEdit.Text = "编辑";
             this.btnTeacherEdit.UseVisualStyleBackColor = true;
+            this.btnTeacherEdit.Click += new System.EventHandler(this.btnTeacherEdit_Click);
             // 
             // btnTeacherAdd
             // 
@@ -178,6 +180,7 @@
             this.btnTeacherAdd.TabIndex = 5;
             this.btnTeacherAdd.Text = "新增";
             this.btnTeacherAdd.UseVisualStyleBackColor = true;
+            this.btnTeacherAdd.Click += new System.EventHandler(this.btnTeacherAdd_Click);
             // 
             // dataGridView2
             // 
@@ -202,6 +205,7 @@
             this.btnStudentDelete.TabIndex = 7;
             this.btnStudentDelete.Text = "删除";
             this.btnStudentDelete.UseVisualStyleBackColor = true;
+            this.btnStudentDelete.Click += new System.EventHandler(this.btnStudentDelete_Click);
             // 
             // btnStudentEdit
             // 
@@ -211,6 +215,7 @@
             this.btnStudentEdit.TabIndex = 6;
             this.btnStudentEdit.Text = "编辑";
             this.btnStudentEdit.UseVisualStyleBackColor = true;
+            this.btnStudentEdit.Click += new System.EventHandler(this.btnStudentEdit_Click);
             // 
             // btnStudentAdd
             // 
@@ -220,6 +225,7 @@
             this.btnStudentAdd.TabIndex = 5;
             this.btnStudentAdd.Text = "新增";
             this.btnStudentAdd.UseVisualStyleBackColor = true;
+            this.btnStudentAdd.Click += new System.EventHandler(this.btnStudentAdd_Click);
             // 
             // dataGridView3
             // 

@@ -72,5 +72,29 @@ namespace IBE.UI
 
             LoadManagerList();
         }
+
+        private void btnTeacherAdd_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnTeacherEdit_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnTeacherDelete_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnStudentAdd_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnStudentEdit_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnStudentDelete_Click(object sender, EventArgs e)
+        {
+        }
     }
 }
