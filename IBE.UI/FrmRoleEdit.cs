@@ -11,13 +11,12 @@ using System.Windows.Forms;
 
 namespace IBE.UI
 {
-    public partial class FrmManagerEdit : Form
+    public partial class FrmRoleEdit : Form
     {
-        public FrmManagerEdit()
+        public FrmRoleEdit()
         {
             InitializeComponent();
         }
-
         private bool isEdit;
 
         /// <summary>
@@ -30,50 +29,46 @@ namespace IBE.UI
                 isEdit = value;
                 if (isEdit)
                 {
-                    Text = "编辑管理员";
+                    Text = "编辑角色";
                 }
                 else
                 {
-                    Text = "新增管理员";
+                    Text = "新增角色";
                 }
             }
         }
+        public Role Role { get; set; }
 
-        public Manager Manager { get; set; }
-
-        public void SetData(Manager manager)
+        public void SetData(Role role)
         {
-            IsEdit = manager != null;
-            Manager = manager;
-            txtAccount.Text = manager.LoginAccount;
-            txtName.Text = manager.Name;
-            txtPassword.Text = manager.Password;
+            IsEdit = role != null;
+            Role = role;
+           
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtPassword.Text==""|| txtAccount.Text=="")
+            if (txtRoleName.Text == "" )
             {
-                MessageBox.Show("用户名密码不能为空");
+                MessageBox.Show("角色名称不能为空");
                 return;
             }
-            Manager.Password = txtPassword.Text;
-            Manager.Name = txtName.Text;
-            Manager.LoginAccount = txtAccount.Text;
+            Role.Remark = txtRemark.Text;
+            Role.Name = txtRoleName.Text;
             if (isEdit)
-            {
-                MyDbContext.Instance.Managers.Attach(Manager);
+            { 
+                MyDbContext.Instance.Roles.Attach(Role);
             }
             else
             {
-                MyDbContext.Instance.Managers.Add(Manager);
+                MyDbContext.Instance.Roles.Add(Role);
             }
             MyDbContext.Instance.SaveChanges();
-            DialogResult = DialogResult.OK;
+          DialogResult = DialogResult.OK;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             //取消
             DialogResult = DialogResult.Cancel;
         }

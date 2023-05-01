@@ -45,6 +45,38 @@ namespace IBE.UI
         {
             IsEdit = student != null;
             Student = student;
+            txtAccount.Text = student.LoginAccount;
+            txtName.Text = student.Name;
+            txtPassword.Text = student.Password;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (txtPassword.Text == "" || txtAccount.Text == "")
+            {
+                MessageBox.Show("用户名密码不能为空");
+                return;
+            }
+            Student.Password = txtPassword.Text;
+            Student.Name = txtName.Text;
+            Student.LoginAccount = txtAccount.Text;
+            if (isEdit)
+            {
+                MyDbContext.Instance.Students.Attach(Student);
+            }
+            else
+            {
+                MyDbContext.Instance.Students.Add(Student);
+            }
+            MyDbContext.Instance.SaveChanges();
+            DialogResult = DialogResult.OK;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            //取消
+            DialogResult = DialogResult.Cancel;
         }
     }
 }

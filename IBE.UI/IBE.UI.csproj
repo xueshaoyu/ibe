@@ -74,6 +74,12 @@
     <Compile Include="FrmManagerMain.Designer.cs">
       <DependentUpon>FrmManagerMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRoleEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRoleEdit.Designer.cs">
+      <DependentUpon>FrmRoleEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmStudentEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,8 +109,23 @@
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmManagerEdit.resx">
+      <DependentUpon>FrmManagerEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmManagerMain.resx">
       <DependentUpon>FrmManagerMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRoleEdit.resx">
+      <DependentUpon>FrmRoleEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStudentEdit.resx">
+      <DependentUpon>FrmStudentEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTeacherEdit.resx">
+      <DependentUpon>FrmTeacherEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTeacherMain.resx">
+      <DependentUpon>FrmTeacherMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
