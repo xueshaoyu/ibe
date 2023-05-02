@@ -20,7 +20,7 @@ namespace IBE
             e - Weilovo uparivanje
             P - 随机曲线点 (x1,y1) - 起点
             Ppub - 公钥 - Ppub = sP
-            s - MASTER 秘钥 - 随机数 iz Zq i != 0
+            s - 主秘钥 - 随机数 iz Zq i != 0
         */
 
         // 随机 P iz E(Fq) - G1
@@ -93,7 +93,7 @@ namespace IBE
 
             Ppub = (FpPoint)P.Multiply(mtp);
             randomKey = s;
-            Console.WriteLine(randomKey);
+            Console.WriteLine($"randomKey={randomKey}");
             File.WriteAllText("mk", s.ToString() + Environment.NewLine);
         }
 
@@ -129,8 +129,8 @@ namespace IBE
             {
                 string sStr = File.ReadAllText("mk");
                 s = int.Parse(sStr);
-                s = randomKey;
-                Console.WriteLine(randomKey);
+
+                Console.WriteLine($"randomKey={randomKey}");
             }
 
             //  y^2 = x^3 + 117050x^2 + x

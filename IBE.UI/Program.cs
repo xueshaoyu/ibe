@@ -15,10 +15,10 @@ namespace IBE.UI
         [STAThread]
         private static void Main()
         {
-            MyDbContext.Instance.InitData();
+            //MyDbContext.Instance.InitData();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogin());
+            Application.Run(new FrmTeacherMain());
         }
     }
 }

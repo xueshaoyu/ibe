@@ -9,12 +9,13 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>IBE.UI</RootNamespace>
     <AssemblyName>IBE.UI</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -135,6 +136,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -154,6 +156,10 @@
     <ProjectReference Include="..\IBE.Data\IBE.Data.csproj">
       <Project>{D134F091-17F3-4FEF-A669-CD04F82C5E8F}</Project>
       <Name>IBE.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IBE\IBE.csproj">
+      <Project>{22795c9a-54da-429d-836c-b6529b598be4}</Project>
+      <Name>IBE</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

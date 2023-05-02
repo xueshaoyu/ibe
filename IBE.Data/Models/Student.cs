@@ -14,6 +14,7 @@ namespace IBE.Data.Models
         public string Name { get; set; }
         public string LoginAccount { get; set; }
         public string Password { get; set; }
+        public string Email { get; set; }
         public virtual Role Role { get; set; }
     }
 }

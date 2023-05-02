@@ -48,6 +48,7 @@ namespace IBE.UI
             txtAccount.Text = student.LoginAccount;
             txtName.Text = student.Name;
             txtPassword.Text = student.Password;
+            txtEmail.Text = student.Email;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -60,6 +61,7 @@ namespace IBE.UI
             Student.Password = txtPassword.Text;
             Student.Name = txtName.Text;
             Student.LoginAccount = txtAccount.Text;
+            Student.Email = txtEmail.Text;
             if (isEdit)
             {
                 MyDbContext.Instance.Students.Attach(Student);

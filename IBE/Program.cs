@@ -21,7 +21,7 @@ namespace IBE
 
             if (args.Length < 2)
             {
-                test();
+               test();
                 Console.WriteLine("\n");
                 upute();
                 return;
@@ -150,36 +150,39 @@ namespace IBE
         {
             Console.Out.WriteLine("开始!");
             Setup setup; FpPoint d_id;
-            while (true)
-            {
-                // 配置前置条件
-                setup = new Setup();
-                // 解密密钥
-                d_id = setup.Exctract("ime.prezime@mail.hr");
+            var id = "75668578999@qq.com";
+            var id1 = "ime.prezime@mail.hr";
+            //while (true)
+            //{
+            //    // 配置前置条件
+            setup = new Setup();
+            //    // 解密密钥
+                d_id = setup.Exctract(id);
 
-                Encrypt e = new Encrypt("ime.prezime@mail.hr", setup.GetP(), setup.GetPpub(), setup.p, setup.E, setup.k);
+            //    Encrypt e = new Encrypt("ime.prezime@mail.hr", setup.GetP(), setup.GetPpub(), setup.p, setup.E, setup.k);
 
-                string msg = "moram porati posluku";
-                Cypher c = e.GetCypher(msg);
+            //    string msg = "测是、sstete";
+            //    Cypher c = e.GetCypher(msg);
 
-                Console.Out.WriteLine("原消息: \"" + msg + "\"");
-                Console.Out.WriteLine("加密后消息: \"" + c.V + "\"");
-                Console.Out.WriteLine("点: \"(" + c.U.X.ToBigInteger().ToString(16) + " ,\n\t" + c.U.Y.ToBigInteger().ToString(16) + "\"");
-                Decrypt d = new Decrypt(d_id, setup.p, setup.k);
-                string demsg = d.GetMessage(c);
-                Console.Out.WriteLine("解密: \"" + demsg + "\"");
-                if (demsg == msg)
-                {
-                    break;
-                }
-            }
+            //    Console.Out.WriteLine("原消息: \"" + msg + "\"");
+            //    Console.Out.WriteLine("加密后消息: \"" + c.V + "\"");
+            //    Console.Out.WriteLine("点: \"(" + c.U.X.ToBigInteger().ToString(16) + " ,\n\t" + c.U.Y.ToBigInteger().ToString(16) + "\"");
+            //    Decrypt d = new Decrypt(d_id, setup.p, setup.k);
+            //    string demsg = d.GetMessage(c);
+            //    Console.Out.WriteLine("解密: \"" + demsg + "\"");
+            //    if (demsg == msg)
+            //    {
+            //        break;
+            //    }
+            //}
             // 解密密钥
             // FpPoint d_id1 = setup.Exctract("ime.prezime@mail.hr");
             while (true)
             {
-                var msgtt = "DDDmoram porati poslukuAAA";
-                Encrypt e = new Encrypt("ime.prezime@mail.hr", setup.GetP(), setup.GetPpub(), setup.p, setup.E, setup.k);
+                var msgtt = "测是、sstete";
+                Encrypt e = new Encrypt(id, setup.GetP(), setup.GetPpub(), setup.p, setup.E, setup.k);
                 Cypher c = e.GetCypher(msgtt);
+                
                 Decrypt d = new Decrypt(d_id, setup.p, setup.k);
                 string demsg = d.GetMessage(c);
                 Console.Out.WriteLine($"源：{c.V},解：{demsg},结果:{msgtt == demsg}");

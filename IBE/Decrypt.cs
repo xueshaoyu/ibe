@@ -5,6 +5,9 @@ using System.Text;
 
 namespace IBE
 {
+    /// <summary>
+    /// 解密
+    /// </summary>
     public class Decrypt
     {
         private FpPoint d_id;

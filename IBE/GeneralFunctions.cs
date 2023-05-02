@@ -1,6 +1,7 @@
 ﻿using Org.BouncyCastle.Math;
 using Org.BouncyCastle.Math.EC;
 using System;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -13,7 +14,9 @@ namespace IBE
             // H1 je sha256(ID) mod p
             SHA256Managed crypt = new SHA256Managed();
             StringBuilder hash = new StringBuilder();
-            byte[] crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(ID), 0, Encoding.UTF8.GetByteCount(ID));
+            var bytes = Encoding.UTF8.GetBytes(ID);
+            
+            byte[] crypto = crypt.ComputeHash(bytes, 0, bytes.Length);
             foreach (byte theByte in crypto)
             {
                 hash.Append(theByte.ToString("x2"));

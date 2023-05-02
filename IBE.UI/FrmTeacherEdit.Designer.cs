@@ -36,11 +36,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(219, 168);
+            this.button2.Location = new System.Drawing.Point(219, 195);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 54);
             this.button2.TabIndex = 15;
@@ -50,7 +52,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(120, 168);
+            this.button1.Location = new System.Drawing.Point(120, 195);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 54);
             this.button1.TabIndex = 14;
@@ -106,11 +108,29 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "姓  名：";
             // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(82, 164);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(282, 25);
+            this.txtEmail.TabIndex = 19;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(14, 167);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 15);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "邮  箱：";
+            // 
             // FrmTeacherEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(385, 242);
+            this.ClientSize = new System.Drawing.Size(385, 261);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtPassword);
@@ -136,5 +156,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label label4;
     }
 }

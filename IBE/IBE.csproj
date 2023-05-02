@@ -62,6 +62,7 @@
     <Compile Include="Cypher.cs" />
     <Compile Include="Decrypt.cs" />
     <Compile Include="Encrypt.cs" />
+    <Compile Include="EncryptHelper.cs" />
     <Compile Include="GeneralFunctions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
