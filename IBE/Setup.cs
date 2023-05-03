@@ -86,13 +86,14 @@ namespace IBE
             FpFieldElement y = (FpFieldElement)E.FromBigInteger(y1); // new FpFieldElement(q, y1);
 
             P = new FpPoint(E, x, y);
+
         }
         /// <summary>
         /// 保证随机数可用,能够解出加密信息
         /// </summary>
         public void EnsureMainKeyRight(string id)
-        {
-            var secretKey = MyDbContext.Instance.SecretKeys.FirstOrDefault(p => p.Email == id); 
+        { 
+            var secretKey = MyDbContext.Instance.SecretKeys.FirstOrDefault(p => p.Email == id);
             var count = 0;
             if (secretKey != null)
             {
@@ -103,7 +104,7 @@ namespace IBE
             else
             {//生成一个可以有解的随机数作为主密钥
             start:
-                do
+               do
                 {
                     Random r = new Random();
                     s = r.Next(1, int.MaxValue - 1);
@@ -165,7 +166,7 @@ namespace IBE
         }
 
         /// <summary>
-        /// 获取私钥
+        /// 颁发私钥
         /// </summary>
         /// <param name="id"></param>
         /// <param name="decrypt">是否解密</param>
@@ -198,7 +199,7 @@ namespace IBE
             FpPoint Qid = new FpPoint(E, x_Qid, y_Qid);
 
             FpPoint d_id = (FpPoint)Qid.Multiply(new BigInteger(s.ToString(), 10));
-
+           
             // 私钥
             return d_id;
         }

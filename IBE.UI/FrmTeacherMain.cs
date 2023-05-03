@@ -1,4 +1,5 @@
 ﻿using IBE.Data.Models;
+using Org.BouncyCastle.Math.EC;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,7 +36,8 @@ namespace IBE.UI
             var obj = listBox1.SelectedItem as Student;
             var id = obj.Email;
             var messsage = File.ReadAllText(txtFilename.Text);
-            var encryptMsg = EncryptHelper.Encode(messsage, id);
+            var encrypt = EncryptHelper.Encode(messsage, id);
+            var encryptMsg = encrypt.V;
             var encryptFilePath = $"files/{Path.GetFileName(txtFilename.Text)}.encrypt";
             if (!Directory.Exists(Path.GetDirectoryName(encryptFilePath)))
             {
@@ -44,6 +46,8 @@ namespace IBE.UI
             File.WriteAllText(encryptFilePath, encryptMsg);
             var exchangeFileData = new ExchangeFileData();
             exchangeFileData.DestEmail = id;
+            exchangeFileData.KeyX = encrypt.U.X.ToBigInteger().ToString();
+            exchangeFileData.KeyY = encrypt.U.Y.ToBigInteger().ToString();
             exchangeFileData.Sender = SessionManager.Teacher.Email;
             exchangeFileData.FileName = Path.GetFileName(txtFilename.Text);
             exchangeFileData.EncryptFilePath = encryptFilePath;
@@ -91,14 +95,12 @@ namespace IBE.UI
             var obj = listBox2.SelectedItem as ExchangeFileData;
             if (obj.DestEmail != SessionManager.Teacher.Email)
             {
-                if (MessageBox.Show("该文件不是发给你的，你要强制解密吗？", "警告", MessageBoxButtons.YesNo) == DialogResult.No)
-                {
-                    return;
-                }
+                MessageBox.Show("该文件不是发给你的，你不能解密。");
+                return;
             }
             obj.IsRead = true;
             var message = File.ReadAllText(obj.EncryptFilePath);
-            var decryptMsg = EncryptHelper.Decode(message, SessionManager.Teacher.Email);
+            var decryptMsg = EncryptHelper.Decode(obj.KeyX, obj.KeyY, message, SessionManager.Teacher.Email);
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
