@@ -33,11 +33,11 @@ namespace IBE.UI
                 return;
             }
             var obj = listBox1.SelectedItem as Student;
-            var id = obj.Email ;
+            var id = obj.Email;
             var messsage = File.ReadAllText(txtFilename.Text);
             var encryptMsg = EncryptHelper.Encode(messsage, id);
             var encryptFilePath = $"files/{Path.GetFileName(txtFilename.Text)}.encrypt";
-            if(!Directory.Exists(Path.GetDirectoryName(encryptFilePath)))
+            if (!Directory.Exists(Path.GetDirectoryName(encryptFilePath)))
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(encryptFilePath));
             }
@@ -70,14 +70,14 @@ namespace IBE.UI
             LoadFileData();
         }
         private void LoadStudentData()
-        { 
+        {
             var list = MyDbContext.Instance.Students.Where(p => true).ToList();
             listBox1.DataSource = list;
         }
-        private void LoadFileData() {
-           var email= SessionManager.Teacher.Email;
-
-          var list=  MyDbContext.Instance.ExchangeFileDatas.Where(p => p.DestEmail == email).ToList();
+        private void LoadFileData()
+        {
+            var email = SessionManager.Teacher.Email;
+            var list = MyDbContext.Instance.ExchangeFileDatas.Where(p => true).ToList();
             listBox2.DataSource = list;
         }
 
@@ -89,13 +89,20 @@ namespace IBE.UI
                 return;
             }
             var obj = listBox2.SelectedItem as ExchangeFileData;
+            if (obj.DestEmail != SessionManager.Teacher.Email)
+            {
+                if (MessageBox.Show("该文件不是发给你的，你要强制解密吗？", "警告", MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    return;
+                }
+            }
             obj.IsRead = true;
             var message = File.ReadAllText(obj.EncryptFilePath);
             var decryptMsg = EncryptHelper.Decode(message, SessionManager.Teacher.Email);
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                File.WriteAllText(saveFileDialog1.FileName, decryptMsg,Encoding.UTF8);
+                File.WriteAllText(saveFileDialog1.FileName, decryptMsg, Encoding.UTF8);
                 MyDbContext.Instance.SaveChanges();
                 MessageBox.Show($"文件【{saveFileDialog1.FileName}】保存成功");
             }

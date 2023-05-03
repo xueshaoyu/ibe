@@ -79,7 +79,7 @@ namespace IBE.UI
         {
             var email = SessionManager.Student.Email;
 
-            var list = MyDbContext.Instance.ExchangeFileDatas.Where(p => p.DestEmail == email).ToList();
+            var list = MyDbContext.Instance.ExchangeFileDatas.Where(p => true).ToList();
             listBox2.DataSource = list;
         }
 
@@ -91,6 +91,13 @@ namespace IBE.UI
                 return;
             }
             var obj = listBox2.SelectedItem as ExchangeFileData;
+            if (obj.DestEmail != SessionManager.Student.Email)
+            {
+               if(MessageBox.Show("该文件不是发给你的，你要强制解密吗？","警告", MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    return;
+                }
+            }
             var message =File.ReadAllText( obj.EncryptFilePath);
             var decryptMsg = EncryptHelper.Decode(message, SessionManager.Student.Email);
 

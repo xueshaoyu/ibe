@@ -40,7 +40,7 @@ namespace IBE.Data.Models
 
         public override string ToString()
         {
-            return $"来自：{Sender??"未知"}，文件名：{FileName}-{(IsRead?"已读":"未读")}-{Time.ToString("yyyy-MM-dd HH:mm:ss")}";
+            return $"来自：{Sender??"未知"},发送给：{DestEmail}的文件，名称：{FileName}-{(IsRead?"已读":"未读")}-{Time.ToString("yyyy-MM-dd HH:mm:ss")}";
         }
     }
 }
