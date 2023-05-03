@@ -62,7 +62,6 @@
     <Compile Include="Cypher.cs" />
     <Compile Include="Decrypt.cs" />
     <Compile Include="Encrypt.cs" />
-    <Compile Include="EncryptHelper.cs" />
     <Compile Include="GeneralFunctions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,7 +71,12 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\IBE.Data\IBE.Data.csproj">
+      <Project>{D134F091-17F3-4FEF-A669-CD04F82C5E8F}</Project>
+      <Name>IBE.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

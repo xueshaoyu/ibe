@@ -39,7 +39,7 @@ namespace IBE.UI
             }
         }
 
-        public Manager Manager { get; set; }
+        public Manager Manager { get; set; } = new Manager();
 
         public void SetData(Manager manager)
         {

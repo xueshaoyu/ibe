@@ -8,6 +8,16 @@
         public override void Up()
         {
             CreateTable(
+                "dbo.ExchangeFileDatas",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        DestEmail = c.String(),
+                        EncryptFilePath = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.Managers",
                 c => new
                     {
@@ -30,6 +40,17 @@
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.SecretKeys",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Email = c.String(),
+                        Key = c.String(),
+                        MainKey = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.Students",
                 c => new
                     {
@@ -37,6 +58,7 @@
                         Name = c.String(),
                         LoginAccount = c.String(),
                         Password = c.String(),
+                        Email = c.String(),
                         Role_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
@@ -51,6 +73,7 @@
                         Name = c.String(),
                         LoginAccount = c.String(),
                         Password = c.String(),
+                        Email = c.String(),
                         Role_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
@@ -67,8 +90,10 @@
             DropIndex("dbo.Students", new[] { "Role_Id" });
             DropTable("dbo.Teachers");
             DropTable("dbo.Students");
+            DropTable("dbo.SecretKeys");
             DropTable("dbo.Roles");
             DropTable("dbo.Managers");
+            DropTable("dbo.ExchangeFileDatas");
         }
     }
 }

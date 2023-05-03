@@ -21,7 +21,7 @@ namespace IBE
 
             if (args.Length < 2)
             {
-               test();
+               //test();
                 Console.WriteLine("\n");
                 upute();
                 return;
@@ -120,7 +120,7 @@ namespace IBE
         private static void decode(Cypher cypher, string id, Setup setup)
         {
             // 秘钥
-            FpPoint d_id = setup.Exctract(id, true);
+            FpPoint d_id = setup.Exctract(id);
 
             Decrypt d = new Decrypt(d_id, setup.p, setup.k);
             string msg = d.GetMessage(cypher);

@@ -42,9 +42,11 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(228, 197);
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button2.Location = new System.Drawing.Point(171, 158);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 54);
+            this.button2.Size = new System.Drawing.Size(56, 43);
             this.button2.TabIndex = 15;
             this.button2.Text = "取消";
             this.button2.UseVisualStyleBackColor = true;
@@ -52,9 +54,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(129, 197);
+            this.button1.Location = new System.Drawing.Point(97, 158);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 54);
+            this.button1.Size = new System.Drawing.Size(56, 43);
             this.button1.TabIndex = 14;
             this.button1.Text = "确认";
             this.button1.UseVisualStyleBackColor = true;
@@ -62,73 +65,83 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(96, 123);
+            this.txtPassword.Location = new System.Drawing.Point(72, 98);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(282, 25);
+            this.txtPassword.Size = new System.Drawing.Size(212, 21);
             this.txtPassword.TabIndex = 13;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 126);
+            this.label3.Location = new System.Drawing.Point(21, 101);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 15);
+            this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 12;
             this.label3.Text = "密  码：";
             // 
             // txtAccount
             // 
-            this.txtAccount.Location = new System.Drawing.Point(96, 74);
+            this.txtAccount.Location = new System.Drawing.Point(72, 59);
+            this.txtAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAccount.Name = "txtAccount";
-            this.txtAccount.Size = new System.Drawing.Size(282, 25);
+            this.txtAccount.Size = new System.Drawing.Size(212, 21);
             this.txtAccount.TabIndex = 11;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 77);
+            this.label2.Location = new System.Drawing.Point(21, 62);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 15);
+            this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 10;
             this.label2.Text = "登录名：";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(96, 25);
+            this.txtName.Location = new System.Drawing.Point(72, 20);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(282, 25);
+            this.txtName.Size = new System.Drawing.Size(212, 21);
             this.txtName.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 28);
+            this.label1.Location = new System.Drawing.Point(21, 22);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 15);
+            this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 8;
             this.label1.Text = "姓  名：";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(96, 166);
+            this.txtEmail.Location = new System.Drawing.Point(72, 133);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(282, 25);
+            this.txtEmail.Size = new System.Drawing.Size(212, 21);
             this.txtEmail.TabIndex = 17;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 169);
+            this.label4.Location = new System.Drawing.Point(21, 135);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 15);
+            this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 16;
             this.label4.Text = "邮  箱：";
             // 
             // FrmStudentEdit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AcceptButton = this.button1;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(415, 254);
+            this.CancelButton = this.button2;
+            this.ClientSize = new System.Drawing.Size(311, 203);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button2);
@@ -139,6 +152,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmStudentEdit";
             this.Text = "新增学生";
             this.ResumeLayout(false);

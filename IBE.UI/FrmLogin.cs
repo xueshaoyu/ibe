@@ -13,9 +13,11 @@ namespace IBE.UI
 {
     public partial class FrmLogin : Form
     {
+        public static FrmLogin Instance { get; set; }
         public FrmLogin()
         {
             InitializeComponent();
+            Instance = this;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -38,6 +40,7 @@ namespace IBE.UI
                     MessageBox.Show("登录失败");
                     return;
                 }
+                SessionManager.Manager = manager;
                 FrmManagerMain frm = new FrmManagerMain();
                 frm.Show();
                 Hide();
@@ -50,6 +53,7 @@ namespace IBE.UI
                     MessageBox.Show("登录失败");
                     return;
                 }
+                SessionManager.Teacher = teacher;
                 FrmTeacherMain frm = new FrmTeacherMain();
                 frm.Show();
                 Hide();
@@ -62,6 +66,7 @@ namespace IBE.UI
                     MessageBox.Show("登录失败");
                     return;
                 }
+                SessionManager.Student = student;
                 FrmStudentMain frm = new FrmStudentMain();
                 frm.Show();
                 Hide();
@@ -71,6 +76,11 @@ namespace IBE.UI
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+            comboBox1.SelectedIndex = 1;
         }
     }
 }

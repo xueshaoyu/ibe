@@ -38,13 +38,15 @@
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.btnOpen = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(135, 395);
+            this.btnSend.Location = new System.Drawing.Point(87, 316);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(2);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(107, 50);
+            this.btnSend.Size = new System.Drawing.Size(94, 40);
             this.btnSend.TabIndex = 0;
             this.btnSend.Text = "发送加密文件";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -53,18 +55,20 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(16, 79);
+            this.listBox1.ItemHeight = 12;
+            this.listBox1.Location = new System.Drawing.Point(12, 63);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(365, 289);
+            this.listBox1.Size = new System.Drawing.Size(275, 232);
             this.listBox1.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 17);
+            this.label1.Location = new System.Drawing.Point(10, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 15);
+            this.label1.Size = new System.Drawing.Size(89, 12);
             this.label1.TabIndex = 2;
             this.label1.Text = "要发送的文件：";
             // 
@@ -75,16 +79,18 @@
             // txtFilename
             // 
             this.txtFilename.Enabled = false;
-            this.txtFilename.Location = new System.Drawing.Point(116, 13);
+            this.txtFilename.Location = new System.Drawing.Point(87, 10);
+            this.txtFilename.Margin = new System.Windows.Forms.Padding(2);
             this.txtFilename.Name = "txtFilename";
-            this.txtFilename.Size = new System.Drawing.Size(689, 25);
+            this.txtFilename.Size = new System.Drawing.Size(518, 21);
             this.txtFilename.TabIndex = 3;
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(811, 13);
+            this.btnSelect.Location = new System.Drawing.Point(608, 10);
+            this.btnSelect.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(75, 25);
+            this.btnSelect.Size = new System.Drawing.Size(56, 20);
             this.btnSelect.TabIndex = 4;
             this.btnSelect.Text = "选择";
             this.btnSelect.UseVisualStyleBackColor = true;
@@ -93,44 +99,49 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 51);
+            this.label2.Location = new System.Drawing.Point(9, 41);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 15);
+            this.label2.Size = new System.Drawing.Size(113, 12);
             this.label2.TabIndex = 5;
             this.label2.Text = "需要发送给的学生：";
             // 
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 15;
-            this.listBox2.Location = new System.Drawing.Point(506, 79);
+            this.listBox2.ItemHeight = 12;
+            this.listBox2.Location = new System.Drawing.Point(316, 63);
+            this.listBox2.Margin = new System.Windows.Forms.Padding(2);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(365, 289);
+            this.listBox2.Size = new System.Drawing.Size(339, 232);
             this.listBox2.TabIndex = 7;
             // 
             // btnOpen
             // 
-            this.btnOpen.Location = new System.Drawing.Point(645, 395);
+            this.btnOpen.Location = new System.Drawing.Point(436, 316);
+            this.btnOpen.Margin = new System.Windows.Forms.Padding(2);
             this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(107, 50);
+            this.btnOpen.Size = new System.Drawing.Size(88, 40);
             this.btnOpen.TabIndex = 6;
             this.btnOpen.Text = "打开加密文件";
             this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(506, 51);
+            this.label3.Location = new System.Drawing.Point(314, 41);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(142, 15);
+            this.label3.Size = new System.Drawing.Size(113, 12);
             this.label3.TabIndex = 8;
             this.label3.Text = "接收到的加密文件：";
             // 
             // FrmTeacherMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(898, 486);
+            this.ClientSize = new System.Drawing.Size(670, 372);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.btnOpen);
@@ -140,8 +151,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnSend);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmTeacherMain";
             this.Text = "教师控制台";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmTeacherMain_FormClosed);
+            this.Load += new System.EventHandler(this.FrmTeacherMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,5 +173,6 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

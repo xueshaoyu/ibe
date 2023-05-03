@@ -20,41 +20,46 @@ namespace IBE.UI
 
         private void FrmManagerMain_Load(object sender, EventArgs e)
         {
-            LoadManagerList(); 
+            dgv1.AutoGenerateColumns = false;
+            dgv2.AutoGenerateColumns = false;
+            dgv3.AutoGenerateColumns = false;
+
+            LoadManagerList();
         }
 
         private void LoadManagerList()
         {
-            dataGridView1.DataSource = MyDbContext.Instance.Managers.Where(p => true).ToList();
+            dgv1.DataSource = MyDbContext.Instance.Managers.Where(p => true).ToList();
         }
 
         private void LoadTeacherList()
         {
-            dataGridView1.DataSource = MyDbContext.Instance.Teachers.Where(p => true).ToList();
+            dgv2.DataSource = MyDbContext.Instance.Teachers.Where(p => true).ToList();
         }
 
         private void LoadStudentList()
         {
-            dataGridView1.DataSource = MyDbContext.Instance.Students.Where(p => true).ToList();
+            dgv3.DataSource = MyDbContext.Instance.Students.Where(p => true).ToList();
         }
-        private void LoadRoleList()
-        {
-            dataGridView4.DataSource = MyDbContext.Instance.Roles.Where(p => true).ToList();
-        }
+
         private void btnMagAdd_Click(object sender, EventArgs e)
         {
             var frm = new FrmManagerEdit();
-            frm.ShowDialog();
+            var r = frm.ShowDialog();
+            if (r == DialogResult.OK)
+            {
+                LoadManagerList();
+            }
         }
 
         private void btnMagEdit_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count == 0)
+            if (dgv1.SelectedRows.Count == 0)
             {
                 MessageBox.Show("请先选择行");
                 return;
             }
-            var item = dataGridView1.CurrentRow.DataBoundItem as Manager;
+            var item = dgv1.CurrentRow.DataBoundItem as Manager;
             FrmManagerEdit frm = new FrmManagerEdit();
             frm.SetData(item);
             var r = frm.ShowDialog();
@@ -66,32 +71,41 @@ namespace IBE.UI
 
         private void btnMagDelete_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count == 0)
+            if (dgv1.SelectedRows.Count == 0)
             {
                 MessageBox.Show("请先选择行");
                 return;
             }
-            var item = dataGridView1.CurrentRow.DataBoundItem as Manager;
-
+            var item = dgv1.CurrentRow.DataBoundItem as Manager;
+            if (!item.AllowDelete)
+            {
+                MessageBox.Show("不能删除内置账户");
+                return;
+            }
             MyDbContext.Instance.Managers.Remove(item);
 
+            MyDbContext.Instance.SaveChanges();
             LoadManagerList();
         }
 
         private void btnTeacherAdd_Click(object sender, EventArgs e)
         {
             var frm = new FrmTeacherEdit();
-            frm.ShowDialog();
+            var r = frm.ShowDialog();
+            if (r == DialogResult.OK)
+            {
+                LoadTeacherList();
+            }
         }
 
         private void btnTeacherEdit_Click(object sender, EventArgs e)
         {
-            if (dataGridView2.SelectedRows.Count == 0)
+            if (dgv2.SelectedRows.Count == 0)
             {
                 MessageBox.Show("请先选择行");
                 return;
             }
-            var item = dataGridView2.CurrentRow.DataBoundItem as Teacher;
+            var item = dgv2.CurrentRow.DataBoundItem as Teacher;
             var frm = new FrmTeacherEdit();
             frm.SetData(item);
             var r = frm.ShowDialog();
@@ -103,32 +117,36 @@ namespace IBE.UI
 
         private void btnTeacherDelete_Click(object sender, EventArgs e)
         {
-            if (dataGridView2.SelectedRows.Count == 0)
+            if (dgv2.SelectedRows.Count == 0)
             {
                 MessageBox.Show("请先选择行");
                 return;
             }
-            var item = dataGridView2.CurrentRow.DataBoundItem as Teacher;
+            var item = dgv2.CurrentRow.DataBoundItem as Teacher;
 
             MyDbContext.Instance.Teachers.Remove(item);
-
+            MyDbContext.Instance.SaveChanges();
             LoadTeacherList();
         }
 
         private void btnStudentAdd_Click(object sender, EventArgs e)
         {
             var frm = new FrmStudentEdit();
-            frm.ShowDialog();
+            var r = frm.ShowDialog();
+            if (r == DialogResult.OK)
+            {
+                LoadStudentList();
+            }
         }
 
         private void btnStudentEdit_Click(object sender, EventArgs e)
         {
-            if (dataGridView3.SelectedRows.Count == 0)
+            if (dgv3.SelectedRows.Count == 0)
             {
                 MessageBox.Show("请先选择行");
                 return;
             }
-            var item = dataGridView3.CurrentRow.DataBoundItem as Student;
+            var item = dgv3.CurrentRow.DataBoundItem as Student;
             var frm = new FrmStudentEdit();
             frm.SetData(item);
             var r = frm.ShowDialog();
@@ -140,54 +158,19 @@ namespace IBE.UI
 
         private void btnStudentDelete_Click(object sender, EventArgs e)
         {
-            if (dataGridView3.SelectedRows.Count == 0)
+            if (dgv3.SelectedRows.Count == 0)
             {
                 MessageBox.Show("请先选择行");
                 return;
             }
-            var item = dataGridView3.CurrentRow.DataBoundItem as Student;
+            var item = dgv3.CurrentRow.DataBoundItem as Student;
 
             MyDbContext.Instance.Students.Remove(item);
 
+            MyDbContext.Instance.SaveChanges();
             LoadStudentList();
         }
 
-        private void btnAddRole_Click(object sender, EventArgs e)
-        {
-            var frm = new FrmRoleEdit();
-            frm.ShowDialog();
-        }
-
-        private void btnEditRole_Click(object sender, EventArgs e)
-        {
-            if (dataGridView3.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("请先选择行");
-                return;
-            }
-            var item = dataGridView4.CurrentRow.DataBoundItem as Role;
-            var frm = new FrmRoleEdit();
-            frm.SetData(item);
-            var r = frm.ShowDialog();
-            if (r == DialogResult.OK)
-            {
-                LoadRoleList();
-            }
-        }
-
-        private void btnDeleteRole_Click(object sender, EventArgs e)
-        {
-            if (dataGridView4.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("请先选择行");
-                return;
-            }
-            var item = dataGridView3.CurrentRow.DataBoundItem as Role;
-
-            MyDbContext.Instance.Roles.Remove(item);
-
-            LoadRoleList();
-        }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -198,17 +181,20 @@ namespace IBE.UI
                     LoadManagerList();
                     break;
                 case 1:
-                    LoadRoleList();
-                    break;
-                case 2:
                     LoadTeacherList();
                     break;
-                case 3:
+                case 2:
                     LoadStudentList();
                     break;
                 default:
                     break;
             }
+        }
+
+        private void FrmManagerMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FrmLogin.Instance.Show();
+            SessionManager.Clear();
         }
     }
 }

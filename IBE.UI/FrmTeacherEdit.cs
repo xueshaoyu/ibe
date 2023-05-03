@@ -39,7 +39,7 @@ namespace IBE.UI
             }
         }
 
-        public Teacher Teacher { get; set; }
+        public Teacher Teacher { get; set; } = new Teacher();
 
         public void SetData(Teacher teacher)
         {

@@ -1,7 +1,10 @@
-﻿using Org.BouncyCastle.Math;
+﻿using IBE.Data.Models;
+using Org.BouncyCastle.Math;
 using Org.BouncyCastle.Math.EC;
 using System;
 using System.IO;
+using System.Text;
+using System.Linq;
 
 namespace IBE
 {
@@ -47,24 +50,19 @@ namespace IBE
         public FpCurve E { get; }
 
         /// <summary>
-        /// 随机数
+        /// 随机数,主秘钥
         /// </summary>
-        private int s = 1282377611;
+        private int s = 0;
 
         /// <summary>
         /// 公钥
         /// </summary>
         private FpPoint Ppub;
-
+        private string mainKeyPath = "main.key";
         public Setup()
         {
             n = 3;
 
-            //do
-            //{
-            //    Random r = new Random();
-            //    s = r.Next(1, int.MaxValue - 1);
-            //} while (s == 0);
 
             // p i q
             // p i q
@@ -88,16 +86,65 @@ namespace IBE
             FpFieldElement y = (FpFieldElement)E.FromBigInteger(y1); // new FpFieldElement(q, y1);
 
             P = new FpPoint(E, x, y);
+        }
+        /// <summary>
+        /// 保证随机数可用,能够解出加密信息
+        /// </summary>
+        public void EnsureMainKeyRight(string id)
+        {
+            var secretKey = MyDbContext.Instance.SecretKeys.FirstOrDefault(p => p.Email == id); 
+            var count = 0;
+            if (secretKey != null)
+            {
+                s = secretKey.MainKey;
+                BigInteger mtp = new BigInteger(s.ToString(), 10);
+                Ppub = (FpPoint)P.Multiply(mtp);
+            }
+            else
+            {//生成一个可以有解的随机数作为主密钥
+            start:
+                do
+                {
+                    Random r = new Random();
+                    s = r.Next(1, int.MaxValue - 1);
+                } while (s == 0);
 
-            BigInteger mtp = new BigInteger(s.ToString(), 10);
+                BigInteger mtp = new BigInteger(s.ToString(), 10);
+                Ppub = (FpPoint)P.Multiply(mtp);
 
-            Ppub = (FpPoint)P.Multiply(mtp);
-            randomKey = s;
-            Console.WriteLine($"randomKey={randomKey}");
-            File.WriteAllText("mk", s.ToString() + Environment.NewLine);
+                var msg = "hello,你好hello,你好hello,你好hello,你好hello,你好";
+              
+
+                Encrypt e = new Encrypt(id, GetP(), GetPpub(), p, E, k);
+                var d_id = Exctract(id);
+                var dmsg = e.GetCypher(msg);
+
+                var d = new Decrypt(d_id, p, k);
+                Cypher c = new Cypher()
+                {
+                    V = dmsg.V,
+                    U = GetP()
+                };
+                string rmsg = d.GetMessage(c);
+
+                while (rmsg != msg)
+                {
+                    count++;
+                    if (File.Exists(mainKeyPath))
+                        File.Delete(mainKeyPath);
+                    goto start;
+                }
+                if (secretKey == null)
+                {
+                    secretKey = new SecretKey();
+                    secretKey.Email = id;
+                    secretKey.MainKey = s;
+                    MyDbContext.Instance.SecretKeys.Add(secretKey);
+                    MyDbContext.Instance.SaveChanges();
+                }
+            }
         }
 
-        public int randomKey;
 
         /// <summary>
         /// 获取私钥
@@ -120,22 +167,28 @@ namespace IBE
         /// <summary>
         /// 获取私钥
         /// </summary>
-        /// <param name="ID"></param>
-        /// <param name="decrypt">是否获取解密秘钥</param>
+        /// <param name="id"></param>
+        /// <param name="decrypt">是否解密</param>
         /// <returns></returns>
-        public FpPoint Exctract(string ID, bool decrypt = false)
+        public FpPoint Exctract(string id, bool decrypt = false)
         {
             if (decrypt)
             {
-                string sStr = File.ReadAllText("mk");
-                s = int.Parse(sStr);
+                var secretKey = MyDbContext.Instance.SecretKeys.FirstOrDefault(p => p.Email == id);
+                if (secretKey != null)
+                {
+                    s = secretKey.MainKey;
+                }
+                else
+                {
 
-                Console.WriteLine($"randomKey={randomKey}");
+                    throw new Exception("该用户不能解密");
+                }
             }
 
             //  y^2 = x^3 + 117050x^2 + x
             //	            y ^ 2 = x ^ 3 + 229969x ^ 2 + x 这个公式不容易出现解不出的情况
-            BigInteger x = GeneralFunctions.H1hash(ID, p);
+            BigInteger x = GeneralFunctions.H1hash(id, p);
             BigInteger y = x.Pow(3).Add(x.Pow(2).Multiply(new BigInteger("229969", 10))).Add(x).Pow(2).ModInverse(p);
             // BigInteger y = x.Pow(3).Add(x.Pow(2).Multiply(new BigInteger("117050", 10))).Add(x).Pow(2).ModInverse(p);
             //BigInteger y = x.Pow(3).Add(x.Pow(2).Multiply(new BigInteger("0", 10))).Add(x).Pow(2).ModInverse(p);
