@@ -28,10 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StudentLoginAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StudentPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StudentEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnMagDelete = new System.Windows.Forms.Button();
@@ -51,47 +47,23 @@
             this.TeacherLoginAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TeacherPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TeacherEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btnStudentDelete = new System.Windows.Forms.Button();
-            this.btnStudentEdit = new System.Windows.Forms.Button();
-            this.btnStudentAdd = new System.Windows.Forms.Button();
             this.dgv3 = new System.Windows.Forms.DataGridView();
+            this.StudentEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentLoginAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnStudentAdd = new System.Windows.Forms.Button();
+            this.btnStudentEdit = new System.Windows.Forms.Button();
+            this.btnStudentDelete = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv2)).BeginInit();
-            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv3)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // StudentName
-            // 
-            this.StudentName.DataPropertyName = "Name";
-            this.StudentName.HeaderText = "姓名";
-            this.StudentName.Name = "StudentName";
-            this.StudentName.ReadOnly = true;
-            // 
-            // StudentLoginAccount
-            // 
-            this.StudentLoginAccount.DataPropertyName = "LoginAccount";
-            this.StudentLoginAccount.HeaderText = "登录名";
-            this.StudentLoginAccount.Name = "StudentLoginAccount";
-            this.StudentLoginAccount.ReadOnly = true;
-            // 
-            // StudentPassword
-            // 
-            this.StudentPassword.DataPropertyName = "Password";
-            this.StudentPassword.HeaderText = "密码";
-            this.StudentPassword.Name = "StudentPassword";
-            this.StudentPassword.ReadOnly = true;
-            // 
-            // StudentEmail
-            // 
-            this.StudentEmail.DataPropertyName = "Email";
-            this.StudentEmail.HeaderText = "邮箱";
-            this.StudentEmail.Name = "StudentEmail";
-            this.StudentEmail.ReadOnly = true;
             // 
             // tabControl1
             // 
@@ -210,7 +182,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(792, 424);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "教师管理";
+            this.tabPage2.Text = "用户管理";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnTeacherDelete
@@ -292,39 +264,49 @@
             this.TeacherEmail.Name = "TeacherEmail";
             this.TeacherEmail.ReadOnly = true;
             // 
-            // tabPage3
+            // dgv3
             // 
-            this.tabPage3.Controls.Add(this.btnStudentDelete);
-            this.tabPage3.Controls.Add(this.btnStudentEdit);
-            this.tabPage3.Controls.Add(this.btnStudentAdd);
-            this.tabPage3.Controls.Add(this.dgv3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(792, 424);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "学生管理";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.dgv3.AllowUserToAddRows = false;
+            this.dgv3.AllowUserToDeleteRows = false;
+            this.dgv3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgv3.Location = new System.Drawing.Point(3, 37);
+            this.dgv3.MultiSelect = false;
+            this.dgv3.Name = "dgv3";
+            this.dgv3.ReadOnly = true;
+            this.dgv3.RowHeadersWidth = 51;
+            this.dgv3.RowTemplate.Height = 23;
+            this.dgv3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv3.Size = new System.Drawing.Size(786, 384);
+            this.dgv3.TabIndex = 4;
             // 
-            // btnStudentDelete
+            // StudentEmail
             // 
-            this.btnStudentDelete.Location = new System.Drawing.Point(197, 6);
-            this.btnStudentDelete.Name = "btnStudentDelete";
-            this.btnStudentDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnStudentDelete.TabIndex = 7;
-            this.btnStudentDelete.Text = "删除";
-            this.btnStudentDelete.UseVisualStyleBackColor = true;
-            this.btnStudentDelete.Click += new System.EventHandler(this.btnStudentDelete_Click);
+            this.StudentEmail.DataPropertyName = "Email";
+            this.StudentEmail.HeaderText = "邮箱";
+            this.StudentEmail.Name = "StudentEmail";
+            this.StudentEmail.ReadOnly = true;
             // 
-            // btnStudentEdit
+            // StudentPassword
             // 
-            this.btnStudentEdit.Location = new System.Drawing.Point(103, 6);
-            this.btnStudentEdit.Name = "btnStudentEdit";
-            this.btnStudentEdit.Size = new System.Drawing.Size(75, 23);
-            this.btnStudentEdit.TabIndex = 6;
-            this.btnStudentEdit.Text = "编辑";
-            this.btnStudentEdit.UseVisualStyleBackColor = true;
-            this.btnStudentEdit.Click += new System.EventHandler(this.btnStudentEdit_Click);
+            this.StudentPassword.DataPropertyName = "Password";
+            this.StudentPassword.HeaderText = "密码";
+            this.StudentPassword.Name = "StudentPassword";
+            this.StudentPassword.ReadOnly = true;
+            // 
+            // StudentLoginAccount
+            // 
+            this.StudentLoginAccount.DataPropertyName = "LoginAccount";
+            this.StudentLoginAccount.HeaderText = "登录名";
+            this.StudentLoginAccount.Name = "StudentLoginAccount";
+            this.StudentLoginAccount.ReadOnly = true;
+            // 
+            // StudentName
+            // 
+            this.StudentName.DataPropertyName = "Name";
+            this.StudentName.HeaderText = "姓名";
+            this.StudentName.Name = "StudentName";
+            this.StudentName.ReadOnly = true;
             // 
             // btnStudentAdd
             // 
@@ -336,26 +318,39 @@
             this.btnStudentAdd.UseVisualStyleBackColor = true;
             this.btnStudentAdd.Click += new System.EventHandler(this.btnStudentAdd_Click);
             // 
-            // dgv3
+            // btnStudentEdit
             // 
-            this.dgv3.AllowUserToAddRows = false;
-            this.dgv3.AllowUserToDeleteRows = false;
-            this.dgv3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.StudentName,
-            this.StudentLoginAccount,
-            this.StudentPassword,
-            this.StudentEmail});
-            this.dgv3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgv3.Location = new System.Drawing.Point(3, 37);
-            this.dgv3.MultiSelect = false;
-            this.dgv3.Name = "dgv3";
-            this.dgv3.ReadOnly = true;
-            this.dgv3.RowHeadersWidth = 51;
-            this.dgv3.RowTemplate.Height = 23;
-            this.dgv3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv3.Size = new System.Drawing.Size(786, 384);
-            this.dgv3.TabIndex = 4;
+            this.btnStudentEdit.Location = new System.Drawing.Point(103, 6);
+            this.btnStudentEdit.Name = "btnStudentEdit";
+            this.btnStudentEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnStudentEdit.TabIndex = 6;
+            this.btnStudentEdit.Text = "编辑";
+            this.btnStudentEdit.UseVisualStyleBackColor = true;
+            this.btnStudentEdit.Click += new System.EventHandler(this.btnStudentEdit_Click);
+            // 
+            // btnStudentDelete
+            // 
+            this.btnStudentDelete.Location = new System.Drawing.Point(197, 6);
+            this.btnStudentDelete.Name = "btnStudentDelete";
+            this.btnStudentDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnStudentDelete.TabIndex = 7;
+            this.btnStudentDelete.Text = "删除";
+            this.btnStudentDelete.UseVisualStyleBackColor = true;
+            this.btnStudentDelete.Click += new System.EventHandler(this.btnStudentDelete_Click);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.btnStudentDelete);
+            this.tabPage3.Controls.Add(this.btnStudentEdit);
+            this.tabPage3.Controls.Add(this.btnStudentAdd);
+            this.tabPage3.Controls.Add(this.dgv3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(792, 424);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "文件管理";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // FrmManagerMain
             // 
@@ -372,8 +367,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv2)).EndInit();
-            this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv3)).EndInit();
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -383,23 +378,14 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button btnMagAdd;
         private System.Windows.Forms.Button btnMagDelete;
         private System.Windows.Forms.Button btnMagEdit;
         private System.Windows.Forms.Button btnTeacherDelete;
         private System.Windows.Forms.Button btnTeacherEdit;
         private System.Windows.Forms.Button btnTeacherAdd;
-        private System.Windows.Forms.Button btnStudentDelete;
-        private System.Windows.Forms.Button btnStudentEdit;
-        private System.Windows.Forms.Button btnStudentAdd;
         private System.Windows.Forms.DataGridView dgv1;
         private System.Windows.Forms.DataGridView dgv2;
-        private System.Windows.Forms.DataGridView dgv3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StudentName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StudentLoginAccount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StudentPassword;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StudentEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn ManagerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ManagerLoginAccount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ManagerPassword;
@@ -407,7 +393,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TeacherName;
         private System.Windows.Forms.DataGridViewTextBoxColumn TeacherLoginAccount;
         private System.Windows.Forms.DataGridViewTextBoxColumn TeacherPassword;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TeacherEmail;		
-
+        private System.Windows.Forms.DataGridViewTextBoxColumn TeacherEmail;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button btnStudentDelete;
+        private System.Windows.Forms.Button btnStudentEdit;
+        private System.Windows.Forms.Button btnStudentAdd;
+        private System.Windows.Forms.DataGridView dgv3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentPassword;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentLoginAccount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentName;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace IBE.UI
 {
-    partial class FrmStudentMain
+    partial class FrmUserMain
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label3 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.btnOpen = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSelect = new System.Windows.Forms.Button();
             this.txtFilename = new System.Windows.Forms.TextBox();
@@ -39,38 +36,8 @@
             this.btnSend = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(305, 41);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 12);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "接收到的加密文件：";
-            // 
-            // listBox2
-            // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 12;
-            this.listBox2.Location = new System.Drawing.Point(307, 63);
-            this.listBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(347, 232);
-            this.listBox2.TabIndex = 16;
-            // 
-            // btnOpen
-            // 
-            this.btnOpen.Location = new System.Drawing.Point(444, 316);
-            this.btnOpen.Margin = new System.Windows.Forms.Padding(2);
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(88, 40);
-            this.btnOpen.TabIndex = 15;
-            this.btnOpen.Text = "打开加密文件";
-            this.btnOpen.UseVisualStyleBackColor = true;
-            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // label2
             // 
@@ -78,9 +45,9 @@
             this.label2.Location = new System.Drawing.Point(8, 41);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 12);
+            this.label2.Size = new System.Drawing.Size(77, 12);
             this.label2.TabIndex = 14;
-            this.label2.Text = "需要发送给的教师：";
+            this.label2.Text = "接收人选择：";
             // 
             // btnSelect
             // 
@@ -96,10 +63,10 @@
             // txtFilename
             // 
             this.txtFilename.Enabled = false;
-            this.txtFilename.Location = new System.Drawing.Point(86, 10);
+            this.txtFilename.Location = new System.Drawing.Point(97, 10);
             this.txtFilename.Margin = new System.Windows.Forms.Padding(2);
             this.txtFilename.Name = "txtFilename";
-            this.txtFilename.Size = new System.Drawing.Size(518, 21);
+            this.txtFilename.Size = new System.Drawing.Size(507, 21);
             this.txtFilename.TabIndex = 12;
             // 
             // label1
@@ -116,15 +83,15 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(11, 63);
+            this.listBox1.Location = new System.Drawing.Point(11, 66);
             this.listBox1.Margin = new System.Windows.Forms.Padding(2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(275, 232);
+            this.listBox1.Size = new System.Drawing.Size(652, 232);
             this.listBox1.TabIndex = 10;
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(86, 316);
+            this.btnSend.Location = new System.Drawing.Point(192, 316);
             this.btnSend.Margin = new System.Windows.Forms.Padding(2);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(94, 40);
@@ -137,22 +104,30 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // FrmStudentMain
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(418, 316);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 40);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "关闭";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // FrmUserMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(674, 377);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.btnOpen);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.txtFilename);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnSend);
-            this.Name = "FrmStudentMain";
-            this.Text = "学生控制台";
+            this.Name = "FrmUserMain";
+            this.Text = "发送文件";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmStudentMain_FormClosed);
             this.Load += new System.EventHandler(this.FrmStudentMain_Load);
             this.ResumeLayout(false);
@@ -161,10 +136,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.TextBox txtFilename;
@@ -173,5 +144,6 @@
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button button1;
     }
 }

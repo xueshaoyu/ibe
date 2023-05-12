@@ -131,7 +131,7 @@ namespace IBE.UI
 
         private void btnStudentAdd_Click(object sender, EventArgs e)
         {
-            var frm = new FrmStudentEdit();
+            var frm = new FrmUserEdit();
             var r = frm.ShowDialog();
             if (r == DialogResult.OK)
             {
@@ -147,7 +147,7 @@ namespace IBE.UI
                 return;
             }
             var item = dgv3.CurrentRow.DataBoundItem as Student;
-            var frm = new FrmStudentEdit();
+            var frm = new FrmUserEdit();
             frm.SetData(item);
             var r = frm.ShowDialog();
             if (r == DialogResult.OK)

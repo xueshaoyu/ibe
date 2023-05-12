@@ -67,7 +67,7 @@ namespace IBE.UI
                     return;
                 }
                 SessionManager.Student = student;
-                FrmStudentMain frm = new FrmStudentMain();
+                FrmUserMain frm = new FrmUserMain();
                 frm.Show();
                 Hide();
             }

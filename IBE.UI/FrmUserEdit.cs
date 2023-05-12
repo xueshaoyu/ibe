@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace IBE.UI
 {
-    public partial class FrmStudentEdit : Form
+    public partial class FrmUserEdit : Form
     {
-        public FrmStudentEdit()
+        public FrmUserEdit()
         {
             InitializeComponent();
         }

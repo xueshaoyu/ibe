@@ -1,6 +1,6 @@
 ﻿namespace IBE.UI
 {
-    partial class FrmStudentEdit
+    partial class FrmUserEdit
     {
         /// <summary>
         /// Required designer variable.
