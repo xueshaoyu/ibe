@@ -32,14 +32,10 @@ namespace IBE.UI
             dgv1.DataSource = MyDbContext.Instance.Managers.Where(p => true).ToList();
         }
 
-        private void LoadTeacherList()
-        {
-            dgv2.DataSource = MyDbContext.Instance.Teachers.Where(p => true).ToList();
-        }
-
+        
         private void LoadStudentList()
         {
-            dgv3.DataSource = MyDbContext.Instance.Students.Where(p => true).ToList();
+            dgv3.DataSource = MyDbContext.Instance.Users.Where(p => true).ToList();
         }
 
         private void btnMagAdd_Click(object sender, EventArgs e)
@@ -88,46 +84,10 @@ namespace IBE.UI
             LoadManagerList();
         }
 
-        private void btnTeacherAdd_Click(object sender, EventArgs e)
-        {
-            var frm = new FrmTeacherEdit();
-            var r = frm.ShowDialog();
-            if (r == DialogResult.OK)
-            {
-                LoadTeacherList();
-            }
-        }
+    
 
-        private void btnTeacherEdit_Click(object sender, EventArgs e)
-        {
-            if (dgv2.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("请先选择行");
-                return;
-            }
-            var item = dgv2.CurrentRow.DataBoundItem as Teacher;
-            var frm = new FrmTeacherEdit();
-            frm.SetData(item);
-            var r = frm.ShowDialog();
-            if (r == DialogResult.OK)
-            {
-                LoadTeacherList();
-            }
-        }
-
-        private void btnTeacherDelete_Click(object sender, EventArgs e)
-        {
-            if (dgv2.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("请先选择行");
-                return;
-            }
-            var item = dgv2.CurrentRow.DataBoundItem as Teacher;
-
-            MyDbContext.Instance.Teachers.Remove(item);
-            MyDbContext.Instance.SaveChanges();
-            LoadTeacherList();
-        }
+       
+ 
 
         private void btnStudentAdd_Click(object sender, EventArgs e)
         {
@@ -146,7 +106,7 @@ namespace IBE.UI
                 MessageBox.Show("请先选择行");
                 return;
             }
-            var item = dgv3.CurrentRow.DataBoundItem as Student;
+            var item = dgv3.CurrentRow.DataBoundItem as User;
             var frm = new FrmUserEdit();
             frm.SetData(item);
             var r = frm.ShowDialog();
@@ -163,9 +123,9 @@ namespace IBE.UI
                 MessageBox.Show("请先选择行");
                 return;
             }
-            var item = dgv3.CurrentRow.DataBoundItem as Student;
+            var item = dgv3.CurrentRow.DataBoundItem as User;
 
-            MyDbContext.Instance.Students.Remove(item);
+            MyDbContext.Instance.Users.Remove(item);
 
             MyDbContext.Instance.SaveChanges();
             LoadStudentList();
@@ -179,11 +139,8 @@ namespace IBE.UI
 
                 case 0:
                     LoadManagerList();
-                    break;
+                    break; 
                 case 1:
-                    LoadTeacherList();
-                    break;
-                case 2:
                     LoadStudentList();
                     break;
                 default:

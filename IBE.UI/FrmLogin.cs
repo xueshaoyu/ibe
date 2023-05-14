@@ -45,32 +45,20 @@ namespace IBE.UI
                 frm.Show();
                 Hide();
             }
-            else if (comboBox1.Text == "教师")
+            else if (comboBox1.Text == "网盘用户")
             {
-                var teacher = context.Teachers.FirstOrDefault(p => p.LoginAccount == textBox1.Text && p.Password == textBox2.Text);
-                if (teacher == null)
+                var user = context.Users.FirstOrDefault(p => p.LoginAccount == textBox1.Text && p.Password == textBox2.Text);
+                if (user == null)
                 {
                     MessageBox.Show("登录失败");
                     return;
                 }
-                SessionManager.Teacher = teacher;
-                FrmTeacherMain frm = new FrmTeacherMain();
-                frm.Show();
-                Hide();
-            }
-            else if (comboBox1.Text == "学生")
-            {
-                var student = context.Students.FirstOrDefault(p => p.LoginAccount == textBox1.Text && p.Password == textBox2.Text);
-                if (student == null)
-                {
-                    MessageBox.Show("登录失败");
-                    return;
-                }
-                SessionManager.Student = student;
+                SessionManager.User = user;
                 FrmUserMain frm = new FrmUserMain();
                 frm.Show();
                 Hide();
             }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -81,6 +69,33 @@ namespace IBE.UI
         private void FrmLogin_Load(object sender, EventArgs e)
         {
             comboBox1.SelectedIndex = 1;
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmFindPwd frmFindPwd = new FrmFindPwd();
+            frmFindPwd.ShowDialog();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmRegister frmRegister = new FrmRegister();
+            frmRegister.ShowDialog();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //用户登录才显示找回密码和注册用户
+            if (comboBox1.Text == "网盘用户")
+            {
+                linkLabel1.Visible = true;
+                linkLabel2.Visible = true;
+            }
+            else
+            {
+                linkLabel1.Visible = false;
+                linkLabel2.Visible = false;
+            }
         }
     }
 }

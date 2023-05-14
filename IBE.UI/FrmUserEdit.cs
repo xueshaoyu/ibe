@@ -39,12 +39,12 @@ namespace IBE.UI
             }
         }
 
-        public Student Student { get; set; } = new Student();
+        public User User { get; set; } = new User();
 
-        public void SetData(Student student)
+        public void SetData(User student)
         {
             IsEdit = student != null;
-            Student = student;
+            User = student;
             txtAccount.Text = student.LoginAccount;
             txtName.Text = student.Name;
             txtPassword.Text = student.Password;
@@ -58,17 +58,17 @@ namespace IBE.UI
                 MessageBox.Show("用户名密码不能为空");
                 return;
             }
-            Student.Password = txtPassword.Text;
-            Student.Name = txtName.Text;
-            Student.LoginAccount = txtAccount.Text;
-            Student.Email = txtEmail.Text;
+            User.Password = txtPassword.Text;
+            User.Name = txtName.Text;
+            User.LoginAccount = txtAccount.Text;
+            User.Email = txtEmail.Text;
             if (isEdit)
             {
-                MyDbContext.Instance.Students.Attach(Student);
+                MyDbContext.Instance.Users.Attach(User);
             }
             else
             {
-                MyDbContext.Instance.Students.Add(Student);
+                MyDbContext.Instance.Users.Add(User);
             }
             MyDbContext.Instance.SaveChanges();
             DialogResult = DialogResult.OK;

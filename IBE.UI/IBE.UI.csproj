@@ -59,6 +59,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EncryptHelper.cs" />
+    <Compile Include="FrmFindPwd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFindPwd.Designer.cs">
+      <DependentUpon>FrmFindPwd.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,18 +107,6 @@
     <Compile Include="FrmUserMain.Designer.cs">
       <DependentUpon>FrmUserMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmTeacherEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmTeacherEdit.Designer.cs">
-      <DependentUpon>FrmTeacherEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmTeacherMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmTeacherMain.Designer.cs">
-      <DependentUpon>FrmTeacherMain.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmUserChangePwd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +116,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionManager.cs" />
+    <EmbeddedResource Include="FrmFindPwd.resx">
+      <DependentUpon>FrmFindPwd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,17 +128,14 @@
     <EmbeddedResource Include="FrmManagerMain.resx">
       <DependentUpon>FrmManagerMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegister.resx">
+      <DependentUpon>FrmRegister.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmUserEdit.resx">
       <DependentUpon>FrmUserEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUserMain.resx">
       <DependentUpon>FrmUserMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmTeacherEdit.resx">
-      <DependentUpon>FrmTeacherEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmTeacherMain.resx">
-      <DependentUpon>FrmTeacherMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

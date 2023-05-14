@@ -16,5 +16,6 @@ namespace IBE.Data.Models
 
         public string Password { get; set; }
         public bool AllowDelete { get; set; } = true;
+
     }
 }

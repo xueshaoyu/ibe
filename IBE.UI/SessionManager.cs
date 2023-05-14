@@ -14,15 +14,13 @@ namespace IBE.UI
     {
 
         public static Manager Manager { get; set; }
-        public static Student Student { get; set; }
-        public static Teacher Teacher { get; set; }
+        public static User User { get; set; } 
         /// <summary>
         /// 清除登录信息
         /// </summary>
         public static void Clear() {
             Manager = null;
-            Student = null;
-            Teacher = null;
+            User = null; 
         }
     }
 }

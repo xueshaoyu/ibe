@@ -193,7 +193,6 @@
             this.btnTeacherDelete.TabIndex = 7;
             this.btnTeacherDelete.Text = "删除";
             this.btnTeacherDelete.UseVisualStyleBackColor = true;
-            this.btnTeacherDelete.Click += new System.EventHandler(this.btnTeacherDelete_Click);
             // 
             // btnTeacherEdit
             // 
@@ -203,7 +202,6 @@
             this.btnTeacherEdit.TabIndex = 6;
             this.btnTeacherEdit.Text = "编辑";
             this.btnTeacherEdit.UseVisualStyleBackColor = true;
-            this.btnTeacherEdit.Click += new System.EventHandler(this.btnTeacherEdit_Click);
             // 
             // btnTeacherAdd
             // 
@@ -213,7 +211,6 @@
             this.btnTeacherAdd.TabIndex = 5;
             this.btnTeacherAdd.Text = "新增";
             this.btnTeacherAdd.UseVisualStyleBackColor = true;
-            this.btnTeacherAdd.Click += new System.EventHandler(this.btnTeacherAdd_Click);
             // 
             // dgv2
             // 

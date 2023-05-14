@@ -12,17 +12,21 @@ namespace IBE.Data.Models
     public class SecretKey : BaseModel
     {
         /// <summary>
-        /// 用户的邮箱值
+        /// 用户的身份邮箱值
         /// </summary>
         public string Email { get; set; }
 
         /// <summary>
-        /// 解密秘钥
+        /// 用户对应的文件DES加密的秘钥，用于查看原秘钥
         /// </summary>
-        public string Key { get; set; }
+        public string FileKey { get; set; }
         /// <summary>
-        /// 主密钥
+        /// 加密后的秘钥
         /// </summary>
-        public int MainKey { get; set; }
+        public int EncryptFileKey { get; set; }
+        /// <summary>
+        /// 身份加密主秘钥
+        /// </summary>
+        public int IBEMainKey { get; set; }
     }
 }

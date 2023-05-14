@@ -7,13 +7,13 @@ namespace IBE.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class db1 : IMigrationMetadata
+    public sealed partial class db : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(db1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(db));
         
         string IMigrationMetadata.Id
         {
-            get { return "202305030442005_db1"; }
+            get { return "202305140744418_db"; }
         }
         
         string IMigrationMetadata.Source

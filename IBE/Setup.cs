@@ -97,7 +97,7 @@ namespace IBE
             var count = 0;
             if (secretKey != null)
             {
-                s = secretKey.MainKey;
+                s = secretKey.IBEMainKey;
                 BigInteger mtp = new BigInteger(s.ToString(), 10);
                 Ppub = (FpPoint)P.Multiply(mtp);
             }
@@ -139,7 +139,7 @@ namespace IBE
                 {
                     secretKey = new SecretKey();
                     secretKey.Email = id;
-                    secretKey.MainKey = s;
+                    secretKey.IBEMainKey = s;
                     MyDbContext.Instance.SecretKeys.Add(secretKey);
                     MyDbContext.Instance.SaveChanges();
                 }
@@ -178,7 +178,7 @@ namespace IBE
                 var secretKey = MyDbContext.Instance.SecretKeys.FirstOrDefault(p => p.Email == id);
                 if (secretKey != null)
                 {
-                    s = secretKey.MainKey;
+                    s = secretKey.IBEMainKey;
                 }
                 else
                 {

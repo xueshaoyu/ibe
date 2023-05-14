@@ -18,13 +18,16 @@ namespace IBE.Data.Models
             Instance = new MyDbContext();
         }
 
+        public static void Save()
+        {
+            Instance.SaveChanges();
+        }
         public static MyDbContext Instance { get; set; }
-        public DbSet<Teacher> Teachers { get; set; }
-        public DbSet<Student> Students { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<Manager> Managers { get; set; }
         public DbSet<SecretKey> SecretKeys { get; set; }
         public DbSet<ExchangeFileData> ExchangeFileDatas { get; set; }
-        
+
         /// <summary>
         /// 初始化数据
         /// </summary>
@@ -34,14 +37,7 @@ namespace IBE.Data.Models
             {
                 Instance.Managers.Add(new Manager() { Name = "超级管理员", LoginAccount = "admin", Password = "admin", AllowDelete = false });
             }
-            if (Instance.Teachers.Count() == 0)
-            {
-                Instance.Teachers.Add(new Teacher() { Name = "测试教师", LoginAccount = "teacher01", Password = "teacher01", Email = "teacher01@qq.com" });
-            }
-            if (Instance.Students.Count() == 0)
-            {
-                Instance.Students.Add(new Student() { Name = "测试学生", LoginAccount = "student01", Password = "student01", Email = "student01@qq.com" });
-            }
+
             Instance.SaveChanges();
         }
     }
