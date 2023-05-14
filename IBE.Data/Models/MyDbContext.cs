@@ -7,6 +7,9 @@ using System.Text;
 
 namespace IBE.Data.Models
 {
+    /// <summary>
+    /// 数据库访问上下文
+    /// </summary>
     public class MyDbContext : DbContext
     {
         public MyDbContext() : base(ConfigurationManager.ConnectionStrings["SQLServerConnection"].ToString())

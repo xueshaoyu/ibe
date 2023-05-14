@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace IBE.Data.Models
 {
     /// <summary>
-    /// 学生
+    /// 用户表
     /// </summary>
     public class User : BaseModel
     {
