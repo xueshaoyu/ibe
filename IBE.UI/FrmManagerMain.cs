@@ -268,7 +268,7 @@ namespace IBE.UI
                 MessageBox.Show("请先选择行");
                 return;
             }
-            if (MessageBox.Show("禁用后，网盘用户将无法下载解密文件。\n是否继续删除？", "警告", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (MessageBox.Show("禁用后，网盘用户将无法下载解密文件。\n是否继续禁用？", "警告", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
             var item = dgv4.CurrentRow.DataBoundItem as SecretKey;
 
