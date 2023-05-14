@@ -23,6 +23,7 @@ namespace IBE.UI
             dgv1.AutoGenerateColumns = false;
             dgv2.AutoGenerateColumns = false;
             dgv3.AutoGenerateColumns = false;
+            dgv4.AutoGenerateColumns = false;
 
             LoadManagerList();
             LoadUserList();
@@ -88,6 +89,8 @@ namespace IBE.UI
                 MessageBox.Show("不能删除内置账户");
                 return;
             }
+            if (MessageBox.Show("删除后，数据将不可恢复，请谨慎操作。\n是否继续删除？", "警告", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
             MyDbContext.Instance.Managers.Remove(item);
 
             MyDbContext.Instance.SaveChanges();
@@ -152,6 +155,8 @@ namespace IBE.UI
                 MessageBox.Show("请先选择行");
                 return;
             }
+            if (MessageBox.Show("删除后，数据将不可恢复，请谨慎操作。\n是否继续删除？", "警告", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
             var item = dgv2.CurrentRow.DataBoundItem as User;
 
             MyDbContext.Instance.Users.Remove(item);
@@ -194,6 +199,8 @@ namespace IBE.UI
                 MessageBox.Show("请先选择行");
                 return;
             }
+            if (MessageBox.Show("删除后，数据将不可恢复，请谨慎操作。\n是否继续删除？", "警告", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
             var item = dgv3.CurrentRow.DataBoundItem as ExchangeFileData;
 
             MyDbContext.Instance.ExchangeFileDatas.Remove(item);
@@ -210,6 +217,8 @@ namespace IBE.UI
                 MessageBox.Show("请先选择行");
                 return;
             }
+            if (MessageBox.Show("删除后，加密文件将永久无法解密，请谨慎操作。\n是否继续删除？", "警告", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
             var item = dgv4.CurrentRow.DataBoundItem as SecretKey;
 
             MyDbContext.Instance.SecretKeys.Remove(item);
@@ -240,9 +249,50 @@ namespace IBE.UI
                 return;
             }
             var item = dgv1.CurrentRow.DataBoundItem as Manager;
+            if(item.Id==SessionManager.Manager.Id)
+            {
+                MessageBox.Show("不能禁用自己");
+                return;
+            }
             item.Enable = false;
             MyDbContext.Instance.SaveChanges();
             LoadManagerList();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //禁用秘钥
+
+            if (dgv4.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("请先选择行");
+                return;
+            }
+            if (MessageBox.Show("禁用后，网盘用户将无法下载解密文件。\n是否继续删除？", "警告", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
+            var item = dgv4.CurrentRow.DataBoundItem as SecretKey;
+
+            item.Enable = false;
+
+            MyDbContext.Instance.SaveChanges();
+            LoadSecretKeyList();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //启用秘钥
+
+            if (dgv4.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("请先选择行");
+                return;
+            } 
+            var item = dgv4.CurrentRow.DataBoundItem as SecretKey;
+
+            item.Enable = true;
+
+            MyDbContext.Instance.SaveChanges();
+            LoadSecretKeyList();
         }
     }
 }

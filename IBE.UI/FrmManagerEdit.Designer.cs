@@ -51,7 +51,7 @@
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(66, 25);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(212, 21);
             this.txtName.TabIndex = 1;
@@ -59,7 +59,7 @@
             // txtAccount
             // 
             this.txtAccount.Location = new System.Drawing.Point(66, 64);
-            this.txtAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAccount.Margin = new System.Windows.Forms.Padding(2);
             this.txtAccount.Name = "txtAccount";
             this.txtAccount.Size = new System.Drawing.Size(212, 21);
             this.txtAccount.TabIndex = 3;
@@ -77,8 +77,9 @@
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(66, 103);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(212, 21);
             this.txtPassword.TabIndex = 5;
             // 
@@ -95,7 +96,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(95, 143);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(56, 43);
             this.button1.TabIndex = 6;
@@ -107,7 +108,7 @@
             // 
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Location = new System.Drawing.Point(170, 143);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(56, 43);
             this.button2.TabIndex = 7;
@@ -130,7 +131,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmManagerEdit";
             this.Text = "新增管理员";
             this.ResumeLayout(false);

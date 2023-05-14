@@ -30,45 +30,47 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnMagDisable = new System.Windows.Forms.Button();
+            this.btnMagEnable = new System.Windows.Forms.Button();
             this.btnMagDelete = new System.Windows.Forms.Button();
             this.btnMagEdit = new System.Windows.Forms.Button();
             this.btnMagAdd = new System.Windows.Forms.Button();
             this.dgv1 = new System.Windows.Forms.DataGridView();
+            this.ManagerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ManagerLoginAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ManagerAllowDelete = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnUserDisable = new System.Windows.Forms.Button();
+            this.btnUserEnable = new System.Windows.Forms.Button();
             this.btnUserDelete = new System.Windows.Forms.Button();
             this.btnUserEdit = new System.Windows.Forms.Button();
             this.btnUserAdd = new System.Windows.Forms.Button();
             this.dgv2 = new System.Windows.Forms.DataGridView();
+            this.TeacherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.TeacherLoginAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeacherEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnFileDelete = new System.Windows.Forms.Button();
             this.dgv3 = new System.Windows.Forms.DataGridView();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.StudentEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StudentPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StudentLoginAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnUserEnable = new System.Windows.Forms.Button();
-            this.btnUserDisable = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnKey = new System.Windows.Forms.Button();
             this.dgv4 = new System.Windows.Forms.DataGridView();
+            this.StudentEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentLoginAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ManagerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ManagerLoginAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ManagerAllowDelete = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.TeacherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.TeacherLoginAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TeacherEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnMagDisable = new System.Windows.Forms.Button();
-            this.btnMagEnable = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
@@ -109,6 +111,26 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "管理员管理";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnMagDisable
+            // 
+            this.btnMagDisable.Location = new System.Drawing.Point(390, 8);
+            this.btnMagDisable.Name = "btnMagDisable";
+            this.btnMagDisable.Size = new System.Drawing.Size(75, 23);
+            this.btnMagDisable.TabIndex = 11;
+            this.btnMagDisable.Text = "禁用";
+            this.btnMagDisable.UseVisualStyleBackColor = true;
+            this.btnMagDisable.Click += new System.EventHandler(this.btnMagDisable_Click);
+            // 
+            // btnMagEnable
+            // 
+            this.btnMagEnable.Location = new System.Drawing.Point(295, 8);
+            this.btnMagEnable.Name = "btnMagEnable";
+            this.btnMagEnable.Size = new System.Drawing.Size(75, 23);
+            this.btnMagEnable.TabIndex = 10;
+            this.btnMagEnable.Text = "启用";
+            this.btnMagEnable.UseVisualStyleBackColor = true;
+            this.btnMagEnable.Click += new System.EventHandler(this.btnMagEnable_Click);
             // 
             // btnMagDelete
             // 
@@ -161,6 +183,34 @@
             this.dgv1.Size = new System.Drawing.Size(786, 384);
             this.dgv1.TabIndex = 0;
             // 
+            // ManagerName
+            // 
+            this.ManagerName.DataPropertyName = "Name";
+            this.ManagerName.HeaderText = "姓名";
+            this.ManagerName.Name = "ManagerName";
+            this.ManagerName.ReadOnly = true;
+            // 
+            // ManagerLoginAccount
+            // 
+            this.ManagerLoginAccount.DataPropertyName = "LoginAccount";
+            this.ManagerLoginAccount.HeaderText = "登录名";
+            this.ManagerLoginAccount.Name = "ManagerLoginAccount";
+            this.ManagerLoginAccount.ReadOnly = true;
+            // 
+            // ManagerAllowDelete
+            // 
+            this.ManagerAllowDelete.DataPropertyName = "AllowDelete";
+            this.ManagerAllowDelete.HeaderText = "是否可删除";
+            this.ManagerAllowDelete.Name = "ManagerAllowDelete";
+            this.ManagerAllowDelete.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "Enable";
+            this.Column7.HeaderText = "启用";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.btnUserDisable);
@@ -176,6 +226,26 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "用户管理";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnUserDisable
+            // 
+            this.btnUserDisable.Location = new System.Drawing.Point(386, 6);
+            this.btnUserDisable.Name = "btnUserDisable";
+            this.btnUserDisable.Size = new System.Drawing.Size(75, 23);
+            this.btnUserDisable.TabIndex = 9;
+            this.btnUserDisable.Text = "禁用";
+            this.btnUserDisable.UseVisualStyleBackColor = true;
+            this.btnUserDisable.Click += new System.EventHandler(this.btnUserDisable_Click);
+            // 
+            // btnUserEnable
+            // 
+            this.btnUserEnable.Location = new System.Drawing.Point(291, 6);
+            this.btnUserEnable.Name = "btnUserEnable";
+            this.btnUserEnable.Size = new System.Drawing.Size(75, 23);
+            this.btnUserEnable.TabIndex = 8;
+            this.btnUserEnable.Text = "启用";
+            this.btnUserEnable.UseVisualStyleBackColor = true;
+            this.btnUserEnable.Click += new System.EventHandler(this.btnUserEnable_Click);
             // 
             // btnUserDelete
             // 
@@ -228,6 +298,34 @@
             this.dgv2.Size = new System.Drawing.Size(786, 384);
             this.dgv2.TabIndex = 4;
             // 
+            // TeacherName
+            // 
+            this.TeacherName.DataPropertyName = "Name";
+            this.TeacherName.HeaderText = "姓名";
+            this.TeacherName.Name = "TeacherName";
+            this.TeacherName.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "Enable";
+            this.Column8.HeaderText = "启用";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // TeacherLoginAccount
+            // 
+            this.TeacherLoginAccount.DataPropertyName = "LoginAccount";
+            this.TeacherLoginAccount.HeaderText = "登录名";
+            this.TeacherLoginAccount.Name = "TeacherLoginAccount";
+            this.TeacherLoginAccount.ReadOnly = true;
+            // 
+            // TeacherEmail
+            // 
+            this.TeacherEmail.DataPropertyName = "Email";
+            this.TeacherEmail.HeaderText = "邮箱";
+            this.TeacherEmail.Name = "TeacherEmail";
+            this.TeacherEmail.ReadOnly = true;
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.btnFileDelete);
@@ -272,66 +370,6 @@
             this.dgv3.Size = new System.Drawing.Size(786, 384);
             this.dgv3.TabIndex = 4;
             // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.btnKey);
-            this.tabPage4.Controls.Add(this.dgv4);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(792, 424);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "秘钥管理";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // StudentEmail
-            // 
-            this.StudentEmail.DataPropertyName = "Email";
-            this.StudentEmail.HeaderText = "邮箱";
-            this.StudentEmail.Name = "StudentEmail";
-            this.StudentEmail.ReadOnly = true;
-            // 
-            // StudentPassword
-            // 
-            this.StudentPassword.DataPropertyName = "Password";
-            this.StudentPassword.HeaderText = "密码";
-            this.StudentPassword.Name = "StudentPassword";
-            this.StudentPassword.ReadOnly = true;
-            // 
-            // StudentLoginAccount
-            // 
-            this.StudentLoginAccount.DataPropertyName = "LoginAccount";
-            this.StudentLoginAccount.HeaderText = "登录名";
-            this.StudentLoginAccount.Name = "StudentLoginAccount";
-            this.StudentLoginAccount.ReadOnly = true;
-            // 
-            // StudentName
-            // 
-            this.StudentName.DataPropertyName = "Name";
-            this.StudentName.HeaderText = "姓名";
-            this.StudentName.Name = "StudentName";
-            this.StudentName.ReadOnly = true;
-            // 
-            // btnUserEnable
-            // 
-            this.btnUserEnable.Location = new System.Drawing.Point(291, 6);
-            this.btnUserEnable.Name = "btnUserEnable";
-            this.btnUserEnable.Size = new System.Drawing.Size(75, 23);
-            this.btnUserEnable.TabIndex = 8;
-            this.btnUserEnable.Text = "启用";
-            this.btnUserEnable.UseVisualStyleBackColor = true;
-            this.btnUserEnable.Click += new System.EventHandler(this.btnUserEnable_Click);
-            // 
-            // btnUserDisable
-            // 
-            this.btnUserDisable.Location = new System.Drawing.Point(386, 6);
-            this.btnUserDisable.Name = "btnUserDisable";
-            this.btnUserDisable.Size = new System.Drawing.Size(75, 23);
-            this.btnUserDisable.TabIndex = 9;
-            this.btnUserDisable.Text = "禁用";
-            this.btnUserDisable.UseVisualStyleBackColor = true;
-            this.btnUserDisable.Click += new System.EventHandler(this.btnUserDisable_Click);
-            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "FileName";
@@ -367,6 +405,40 @@
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.button2);
+            this.tabPage4.Controls.Add(this.button1);
+            this.tabPage4.Controls.Add(this.btnKey);
+            this.tabPage4.Controls.Add(this.dgv4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(792, 424);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "秘钥管理";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(170, 6);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "启用";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(89, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "禁用";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btnKey
             // 
             this.btnKey.Location = new System.Drawing.Point(8, 6);
@@ -397,6 +469,34 @@
             this.dgv4.Size = new System.Drawing.Size(786, 384);
             this.dgv4.TabIndex = 8;
             // 
+            // StudentEmail
+            // 
+            this.StudentEmail.DataPropertyName = "Email";
+            this.StudentEmail.HeaderText = "邮箱";
+            this.StudentEmail.Name = "StudentEmail";
+            this.StudentEmail.ReadOnly = true;
+            // 
+            // StudentPassword
+            // 
+            this.StudentPassword.DataPropertyName = "Password";
+            this.StudentPassword.HeaderText = "密码";
+            this.StudentPassword.Name = "StudentPassword";
+            this.StudentPassword.ReadOnly = true;
+            // 
+            // StudentLoginAccount
+            // 
+            this.StudentLoginAccount.DataPropertyName = "LoginAccount";
+            this.StudentLoginAccount.HeaderText = "登录名";
+            this.StudentLoginAccount.Name = "StudentLoginAccount";
+            this.StudentLoginAccount.ReadOnly = true;
+            // 
+            // StudentName
+            // 
+            this.StudentName.DataPropertyName = "Name";
+            this.StudentName.HeaderText = "姓名";
+            this.StudentName.Name = "StudentName";
+            this.StudentName.ReadOnly = true;
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Email";
@@ -406,7 +506,7 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "FileKey";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "EncryptFileKey";
             this.dataGridViewTextBoxColumn2.HeaderText = "加密秘钥";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
@@ -417,82 +517,6 @@
             this.Column6.HeaderText = "IBE主秘钥";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
-            // 
-            // ManagerName
-            // 
-            this.ManagerName.DataPropertyName = "Name";
-            this.ManagerName.HeaderText = "姓名";
-            this.ManagerName.Name = "ManagerName";
-            this.ManagerName.ReadOnly = true;
-            // 
-            // ManagerLoginAccount
-            // 
-            this.ManagerLoginAccount.DataPropertyName = "LoginAccount";
-            this.ManagerLoginAccount.HeaderText = "登录名";
-            this.ManagerLoginAccount.Name = "ManagerLoginAccount";
-            this.ManagerLoginAccount.ReadOnly = true;
-            // 
-            // ManagerAllowDelete
-            // 
-            this.ManagerAllowDelete.DataPropertyName = "AllowDelete";
-            this.ManagerAllowDelete.HeaderText = "是否可删除";
-            this.ManagerAllowDelete.Name = "ManagerAllowDelete";
-            this.ManagerAllowDelete.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "Enable";
-            this.Column7.HeaderText = "启用";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // TeacherName
-            // 
-            this.TeacherName.DataPropertyName = "Name";
-            this.TeacherName.HeaderText = "姓名";
-            this.TeacherName.Name = "TeacherName";
-            this.TeacherName.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "Enable";
-            this.Column8.HeaderText = "启用";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // TeacherLoginAccount
-            // 
-            this.TeacherLoginAccount.DataPropertyName = "LoginAccount";
-            this.TeacherLoginAccount.HeaderText = "登录名";
-            this.TeacherLoginAccount.Name = "TeacherLoginAccount";
-            this.TeacherLoginAccount.ReadOnly = true;
-            // 
-            // TeacherEmail
-            // 
-            this.TeacherEmail.DataPropertyName = "Email";
-            this.TeacherEmail.HeaderText = "邮箱";
-            this.TeacherEmail.Name = "TeacherEmail";
-            this.TeacherEmail.ReadOnly = true;
-            // 
-            // btnMagDisable
-            // 
-            this.btnMagDisable.Location = new System.Drawing.Point(390, 8);
-            this.btnMagDisable.Name = "btnMagDisable";
-            this.btnMagDisable.Size = new System.Drawing.Size(75, 23);
-            this.btnMagDisable.TabIndex = 11;
-            this.btnMagDisable.Text = "禁用";
-            this.btnMagDisable.UseVisualStyleBackColor = true;
-            this.btnMagDisable.Click += new System.EventHandler(this.btnMagDisable_Click);
-            // 
-            // btnMagEnable
-            // 
-            this.btnMagEnable.Location = new System.Drawing.Point(295, 8);
-            this.btnMagEnable.Name = "btnMagEnable";
-            this.btnMagEnable.Size = new System.Drawing.Size(75, 23);
-            this.btnMagEnable.TabIndex = 10;
-            this.btnMagEnable.Text = "启用";
-            this.btnMagEnable.UseVisualStyleBackColor = true;
-            this.btnMagEnable.Click += new System.EventHandler(this.btnMagEnable_Click);
             // 
             // FrmManagerMain
             // 
@@ -547,9 +571,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Button btnKey;
         private System.Windows.Forms.DataGridView dgv4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn ManagerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ManagerLoginAccount;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ManagerAllowDelete;
@@ -560,5 +581,10 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn TeacherLoginAccount;
         private System.Windows.Forms.DataGridViewTextBoxColumn TeacherEmail;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }

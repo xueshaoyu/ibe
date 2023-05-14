@@ -60,12 +60,12 @@ namespace IBE.UI
                         {
                             lblQustion1.Text = user.FirstQuestion;
                             lblQuestion2.Text = user.SecondQuestion;
-                            lblQuestion2.Text = user.ThirdQuestion;
+                            lblQuestion3.Text = user.ThirdQuestion;
                             allowchangetab = true;
                             tabControl1.SelectedIndex = currentStep;
                         }
                     }
-                break;
+                    break;
                 case 2:
                     {
                         var user = MyDbContext.Instance.Users.FirstOrDefault(p => p.LoginAccount == txtUsername.Text);
@@ -76,7 +76,13 @@ namespace IBE.UI
                         }
                         else
                         {
-                            if(user.FirstAnswer!=txtAnswer1.Text|| user.SecondAnswer != txtAnswer2.Text || user.ThirdAnswer != txtAnswer2.Text)
+                            if (user.Email != txtEmail.Text)
+                            {
+
+                                MessageBox.Show("邮箱与用户名不匹配");
+                                currentStep--;
+                            }
+                            else if (user.FirstAnswer != txtAnswer1.Text || user.SecondAnswer != txtAnswer2.Text || user.ThirdAnswer != txtAnswer2.Text)
                             {
                                 MessageBox.Show("密保答案有误");
                                 currentStep--;
@@ -88,20 +94,20 @@ namespace IBE.UI
                             }
                         }
                     }
-                        break;
+                    break;
                 case 3:
                     {
                         var user = MyDbContext.Instance.Users.FirstOrDefault(p => p.LoginAccount == txtUsername.Text);
                         if (user == null)
                         {
-                            MessageBox.Show("用户名不存在"); 
+                            MessageBox.Show("用户名不存在");
                         }
                         else
                         {
-                            if (txtPwd.Text!=txtConfirmPwd.Text)
+                            if (txtPwd.Text != txtConfirmPwd.Text)
                             {
                                 MessageBox.Show("两次密码不一致");
-                                 
+
                             }
                             else
                             {

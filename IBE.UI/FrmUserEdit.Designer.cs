@@ -158,7 +158,6 @@
             // 
             this.txtEmail.Location = new System.Drawing.Point(85, 78);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(191, 21);
             this.txtEmail.TabIndex = 39;
             // 
@@ -208,7 +207,6 @@
             // 
             this.txtUserName.Location = new System.Drawing.Point(85, 6);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.ReadOnly = true;
             this.txtUserName.Size = new System.Drawing.Size(191, 21);
             this.txtUserName.TabIndex = 29;
             // 

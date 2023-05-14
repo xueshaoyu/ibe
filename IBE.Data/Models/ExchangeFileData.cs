@@ -37,7 +37,7 @@ namespace IBE.Data.Models
         /// 是否已下载
         /// </summary>
 
-        public bool IsRead { get; set; }
+        public bool IsDowload { get; set; }
 
         /// <summary>
         /// 是否发送给自己的文件
@@ -47,7 +47,7 @@ namespace IBE.Data.Models
 
         public override string ToString()
         {
-            return $"来自：{Sender ?? "未知"},发送给：{DestEmail}的文件，文件名称：{FileName}-状态：{(IsRead ? "已下载" : "未下载")}-发送时间：{Time.ToString("yyyy-MM-dd HH:mm:ss")}";
+            return $"来自：{Sender ?? "未知"},发送给：{DestEmail}的文件，文件名称：{FileName}-状态：{(IsDowload ? "已下载" : "未下载")}-发送时间：{Time.ToString("yyyy-MM-dd HH:mm:ss")}";
         }
     }
 }

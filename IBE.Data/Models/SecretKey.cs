@@ -30,5 +30,7 @@ namespace IBE.Data.Models
         public int IBEMainKey { get; set; }
         public string IBEX { get; set; }
         public string IBEY { get; set; }
+
+        public bool Enable { get; set; } = true;
     }
 }

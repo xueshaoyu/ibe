@@ -71,12 +71,6 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmManagerChangePwd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmManagerChangePwd.Designer.cs">
-      <DependentUpon>FrmManagerChangePwd.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmManagerEdit.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -45,7 +45,11 @@ namespace IBE.UI
         {
             IsEdit = user != null;
             User = user;
-
+            if(User!=null)
+            {
+                txtUserName.ReadOnly = false;
+                txtEmail.ReadOnly = false;
+            }
             txtUserName.Text = user.LoginAccount;
             txtTrueName.Text = user.Name;
             txtPwd.Text = user.Password;

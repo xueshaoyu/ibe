@@ -29,7 +29,7 @@ namespace IBE.UI
             LoadFileData();
         }
         private void LoadUserData()
-        { 
+        {
             var list = MyDbContext.Instance.Users.Where(p => p.Id != SessionManager.User.Id).ToList();
             listBox1.DataSource = list;
         }
@@ -76,7 +76,7 @@ namespace IBE.UI
 
 
         private void LoadFileData()
-        { 
+        {
             var email = SessionManager.User.Email;
             if (!checkBox1.Checked)
             {
@@ -128,8 +128,8 @@ namespace IBE.UI
             SessionManager.Clear();
             this.Close();
         }
-         
-       
+
+
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -141,7 +141,17 @@ namespace IBE.UI
                 return;
             }
             var item = listBox2.SelectedItem as ExchangeFileData;
-
+            var sec = MyDbContext.Instance.SecretKeys.FirstOrDefault(p => p.Email == SessionManager.User.Email);
+            if (sec == null)
+            {
+                MessageBox.Show("无法下载文件。因为无法解密。");
+                return;
+            }
+            if (!sec.Enable)
+            {
+                MessageBox.Show("无法下载文件。因为秘钥被禁用，请联系管理员。");
+                return;
+            }
             var desKey = EncryptHelper.GetDesKeyByEmail(SessionManager.User.Email);
             var fileName = item.FileName;
             saveFileDialog1.FileName = fileName;
@@ -149,7 +159,7 @@ namespace IBE.UI
             {
                 DesHelper.DecryptFile(item.EncryptFilePath, saveFileDialog1.FileName, desKey);
                 MessageBox.Show("接收文件成功");
-                item.IsRead = true;
+                item.IsDowload = true;
             }
         }
 
