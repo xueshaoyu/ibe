@@ -1,8 +1,8 @@
 ﻿
 在程序包管理器控制台中选中选中项目 IBE.Data;然后按需求执行下面得指令
-1初始化数据库 
-Enable-Migrations -ConnectionStringName "SQLServerConnection" -Force -Verbose
-2.add-migration db
+1.初始化数据库 
+Enable-Migrations
+2.生成数据库更新文件
+add-migration db
 3.更新数据库
-
-update-database -ConnectionStringName "SQLServerConnection" -Force -Verbose
+update-database
