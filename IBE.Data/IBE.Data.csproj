@@ -56,6 +56,10 @@
     <Compile Include="Migrations\202305140744418_db.designer.cs">
       <DependentUpon>202305140744418_db.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305140908330_db1.cs" />
+    <Compile Include="Migrations\202305140908330_db1.designer.cs">
+      <DependentUpon>202305140908330_db1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\MyDbContext.cs" />
@@ -72,6 +76,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202305140744418_db.resx">
       <DependentUpon>202305140744418_db.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305140908330_db1.resx">
+      <DependentUpon>202305140908330_db1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

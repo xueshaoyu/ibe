@@ -53,6 +53,11 @@ namespace IBE.UI
                     MessageBox.Show("登录失败");
                     return;
                 }
+                if(user.Enable==false)
+                {
+                    MessageBox.Show("用户被禁用");
+                    return;
+                }
                 SessionManager.User = user;
                 FrmUserMain frm = new FrmUserMain();
                 frm.Show();

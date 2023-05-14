@@ -30,6 +30,10 @@ namespace IBE.Data.Models
         public string FirstAnswer { get; set; }
         public string SecondAnswer { get; set; }
         public string ThirdAnswer { get; set; }
+        /// <summary>
+        /// 启用、禁用
+        /// </summary>
+        public bool Enable { get; set; } = true;
 
         public override string ToString()
         {

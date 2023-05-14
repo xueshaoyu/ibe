@@ -25,6 +25,9 @@ namespace IBE.UI
             dgv3.AutoGenerateColumns = false;
 
             LoadManagerList();
+            LoadUserList();
+            LoadFileList();
+            LoadSecretKeyList();
         }
 
         private void LoadManagerList()
@@ -33,11 +36,18 @@ namespace IBE.UI
         }
 
         
-        private void LoadStudentList()
+        private void LoadUserList()
         {
-            dgv3.DataSource = MyDbContext.Instance.Users.Where(p => true).ToList();
+            dgv2.DataSource = MyDbContext.Instance.Users.Where(p => true).ToList();
         }
-
+        private void LoadFileList()
+        {
+            dgv3.DataSource = MyDbContext.Instance.ExchangeFileDatas.Where(p => true).ToList();
+        }
+        private void LoadSecretKeyList()
+        {
+            dgv4.DataSource = MyDbContext.Instance.SecretKeys.Where(p => true).ToList();
+        }
         private void btnMagAdd_Click(object sender, EventArgs e)
         {
             var frm = new FrmManagerEdit();
@@ -82,54 +92,7 @@ namespace IBE.UI
 
             MyDbContext.Instance.SaveChanges();
             LoadManagerList();
-        }
-
-    
-
-       
- 
-
-        private void btnStudentAdd_Click(object sender, EventArgs e)
-        {
-            var frm = new FrmUserEdit();
-            var r = frm.ShowDialog();
-            if (r == DialogResult.OK)
-            {
-                LoadStudentList();
-            }
-        }
-
-        private void btnStudentEdit_Click(object sender, EventArgs e)
-        {
-            if (dgv3.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("请先选择行");
-                return;
-            }
-            var item = dgv3.CurrentRow.DataBoundItem as User;
-            var frm = new FrmUserEdit();
-            frm.SetData(item);
-            var r = frm.ShowDialog();
-            if (r == DialogResult.OK)
-            {
-                LoadStudentList();
-            }
-        }
-
-        private void btnStudentDelete_Click(object sender, EventArgs e)
-        {
-            if (dgv3.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("请先选择行");
-                return;
-            }
-            var item = dgv3.CurrentRow.DataBoundItem as User;
-
-            MyDbContext.Instance.Users.Remove(item);
-
-            MyDbContext.Instance.SaveChanges();
-            LoadStudentList();
-        }
+        } 
 
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -141,7 +104,7 @@ namespace IBE.UI
                     LoadManagerList();
                     break; 
                 case 1:
-                    LoadStudentList();
+                    LoadUserList();
                     break;
                 default:
                     break;
@@ -152,6 +115,134 @@ namespace IBE.UI
         {
             FrmLogin.Instance.Show();
             SessionManager.Clear();
+        }
+
+        private void btnUserAdd_Click(object sender, EventArgs e)
+        {
+
+            var frm = new FrmUserEdit();
+            var r = frm.ShowDialog();
+            if (r == DialogResult.OK)
+            {
+                LoadUserList();
+            }
+        }
+
+        private void btnUserEdit_Click(object sender, EventArgs e)
+        {
+            if (dgv2.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("请先选择行");
+                return;
+            }
+            var item = dgv2.CurrentRow.DataBoundItem as User;
+            var frm = new FrmUserEdit();
+            frm.SetData(item);
+            var r = frm.ShowDialog();
+            if (r == DialogResult.OK)
+            {
+                LoadUserList();
+            }
+        }
+
+        private void btnUserDelete_Click(object sender, EventArgs e)
+        {
+            if (dgv2.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("请先选择行");
+                return;
+            }
+            var item = dgv2.CurrentRow.DataBoundItem as User;
+
+            MyDbContext.Instance.Users.Remove(item);
+
+            MyDbContext.Instance.SaveChanges();
+            LoadUserList();
+        }
+
+        private void btnUserEnable_Click(object sender, EventArgs e)
+        {
+            if (dgv2.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("请先选择行");
+                return;
+            }
+            var item = dgv2.CurrentRow.DataBoundItem as User;
+            item.Enable = true;
+            MyDbContext.Instance.SaveChanges();
+            LoadUserList();
+        }
+
+        private void btnUserDisable_Click(object sender, EventArgs e)
+        {
+            if (dgv2.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("请先选择行");
+                return;
+            }
+            var item = dgv2.CurrentRow.DataBoundItem as User;
+            item.Enable = false;
+            MyDbContext.Instance.SaveChanges();
+            LoadUserList();
+
+        }
+
+        private void btnFileDelete_Click(object sender, EventArgs e)
+        {
+            if (dgv3.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("请先选择行");
+                return;
+            }
+            var item = dgv3.CurrentRow.DataBoundItem as ExchangeFileData;
+
+            MyDbContext.Instance.ExchangeFileDatas.Remove(item);
+
+            MyDbContext.Instance.SaveChanges();
+            LoadFileList();
+        }
+
+        private void btnKey_Click(object sender, EventArgs e)
+        {
+
+            if (dgv4.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("请先选择行");
+                return;
+            }
+            var item = dgv4.CurrentRow.DataBoundItem as SecretKey;
+
+            MyDbContext.Instance.SecretKeys.Remove(item);
+
+            MyDbContext.Instance.SaveChanges();
+            LoadSecretKeyList();
+        }
+
+        private void btnMagEnable_Click(object sender, EventArgs e)
+        {
+            if (dgv1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("请先选择行");
+                return;
+            }
+            var item = dgv1.CurrentRow.DataBoundItem as Manager;
+            item.Enable = true;
+            MyDbContext.Instance.SaveChanges();
+            LoadManagerList();
+        }
+
+        private void btnMagDisable_Click(object sender, EventArgs e)
+        {
+
+            if (dgv1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("请先选择行");
+                return;
+            }
+            var item = dgv1.CurrentRow.DataBoundItem as Manager;
+            item.Enable = false;
+            MyDbContext.Instance.SaveChanges();
+            LoadManagerList();
         }
     }
 }
