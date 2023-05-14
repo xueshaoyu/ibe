@@ -61,10 +61,12 @@
   <ItemGroup>
     <Compile Include="Cypher.cs" />
     <Compile Include="Decrypt.cs" />
+    <Compile Include="DesHelper.cs" />
     <Compile Include="Encrypt.cs" />
     <Compile Include="GeneralFunctions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomHelper.cs" />
     <Compile Include="Setup.cs" />
   </ItemGroup>
   <ItemGroup>

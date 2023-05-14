@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +11,7 @@ namespace IBE.Data.Models
     /// <summary>
     /// 文件交换信息
     /// </summary>
-    public class ExchangeFileData:BaseModel
+    public class ExchangeFileData : BaseModel
     {
         /// <summary>
         /// 发送人
@@ -18,7 +20,7 @@ namespace IBE.Data.Models
         /// <summary>
         /// 目标邮箱地址
         /// </summary>
-        public string DestEmail{get;set; }
+        public string DestEmail { get; set; }
         /// <summary>
         /// 文件名
         /// </summary>
@@ -30,19 +32,22 @@ namespace IBE.Data.Models
         /// <summary>
         /// 时间
         /// </summary>
-        public DateTime Time { get; set; } = DateTime.Now;
-        public string KeyX { get; set; }
-        public string KeyY { get; set; }
+        public DateTime Time { get; set; } = DateTime.Now; 
         /// <summary>
-        /// 是否已读
+        /// 是否已下载
         /// </summary>
 
         public bool IsRead { get; set; }
 
+        /// <summary>
+        /// 是否发送给自己的文件
+        /// </summary>
+        [NotMapped]
+        public bool IsSendMe { get; set; }
 
         public override string ToString()
         {
-            return $"来自：{Sender??"未知"},发送给：{DestEmail}的文件\n名称：{FileName}-{(IsRead?"已读":"未读")}-{Time.ToString("yyyy-MM-dd HH:mm:ss")}";
+            return $"来自：{Sender ?? "未知"},发送给：{DestEmail}的文件，文件名称：{FileName}-状态：{(IsRead ? "已下载" : "未下载")}-发送时间：{Time.ToString("yyyy-MM-dd HH:mm:ss")}";
         }
     }
 }

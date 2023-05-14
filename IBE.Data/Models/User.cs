@@ -37,7 +37,7 @@ namespace IBE.Data.Models
 
         public override string ToString()
         {
-            return $"{Name}-{Email}";
+            return $"姓名：{Name}-登录账号：{LoginAccount}-邮箱：{Email}";
         }
     }
 }

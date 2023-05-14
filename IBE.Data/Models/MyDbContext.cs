@@ -35,7 +35,7 @@ namespace IBE.Data.Models
         {
             if (Instance.Managers.Count() == 0)
             {
-                Instance.Managers.Add(new Manager() { Name = "超级管理员", LoginAccount = "admin", Password = "admin", AllowDelete = false });
+                Instance.Managers.Add(new Manager() { Name = "超级管理员", LoginAccount = "admin", Password = "admin", AllowDelete = false,Enable=true });
             }
 
             Instance.SaveChanges();

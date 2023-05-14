@@ -40,6 +40,11 @@ namespace IBE.UI
                     MessageBox.Show("登录失败");
                     return;
                 }
+                if(!manager.Enable)
+                {
+                    MessageBox.Show("管理员被禁用");
+                    return;
+                }
                 SessionManager.Manager = manager;
                 FrmManagerMain frm = new FrmManagerMain();
                 frm.Show();
@@ -58,6 +63,8 @@ namespace IBE.UI
                     MessageBox.Show("用户被禁用");
                     return;
                 }
+                this.textBox1.Text = "";
+                this.textBox2.Text = "";
                 SessionManager.User = user;
                 FrmUserMain frm = new FrmUserMain();
                 frm.Show();

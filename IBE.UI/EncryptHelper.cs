@@ -1,4 +1,5 @@
-﻿using Org.BouncyCastle.Math;
+﻿using IBE.Data.Models;
+using Org.BouncyCastle.Math;
 using Org.BouncyCastle.Math.EC;
 using System;
 using System.Collections.Generic;
@@ -14,55 +15,44 @@ namespace IBE.UI
     /// </summary>
     public class EncryptHelper
     { 
-
-        /// <summary>
-        ///  解密
-        /// </summary>
-        /// <param name="demsg"></param>
-        /// <param name="id"></param>
-        public static string Decode(string x,string y,string demsg, string id)
-        {
-            // 秘钥
-            var setup = new Setup();
-            setup.EnsureMainKeyRight(id);
-            // 解密密钥 
-            var d_id = setup.Exctract(id,true);
-
-            BigInteger x1 = new BigInteger(x, 10);
-            BigInteger y1 = new BigInteger(y, 10);
-
-            FpFieldElement fx = (FpFieldElement)setup.E.FromBigInteger(x1);
-            FpFieldElement fy = (FpFieldElement)setup.E.FromBigInteger(y1);
-
-            FpPoint point = new FpPoint(setup.E, fx, fy);
-
-            Cypher c = new Cypher()
-            {
-                U =  setup.GetP(),
-                V = demsg
-            };
-            var d = new Decrypt(d_id, setup.p, setup.k);
-            string msg = d.GetMessage(c);
-           
-            return msg;
-        }
-
-       
         /// <summary>
         /// 加密
         /// </summary>
         /// <param name="msg"></param>
-        /// <param name="id"></param>
-        public static Cypher Encode(string msg, string id)
+        /// <param name="email">邮箱</param>
+        private static void EnsureIbeMainKeyRight(string email)
         {
             var setup = new Setup();
-            setup.EnsureMainKeyRight(id); 
-             
-            Encrypt e = new Encrypt(id, setup.GetP(), setup.GetPpub(), setup.p, setup.E, setup.k);
-            Cypher c = e.GetCypher(msg); 
-
-            return c;
-
+            setup.EnsureMainKeyRight(email);             
+         
         }
+        /// <summary>
+        /// 通过邮箱获取文件对称加密的秘钥
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public static string GetDesKeyByEmail(string email)
+        {
+            EnsureIbeMainKeyRight(email);
+            var secretKey=  MyDbContext.Instance.SecretKeys.FirstOrDefault(p => p.Email == email);
+            var setup = new Setup();
+
+            BigInteger mtp = new BigInteger(secretKey.IBEMainKey.ToString(), 10);
+           var Ppub = (FpPoint)setup.GetP().Multiply(mtp);
+            setup.SetPpub(Ppub);
+             
+            var d_id = setup. Exctract(email,true); 
+
+            var d = new Decrypt(d_id, setup.p, setup.k);
+            var x = new BigInteger(secretKey.IBEX, 10);
+            var y = new BigInteger(secretKey.IBEY, 10);
+            FpFieldElement x_Qid = new FpFieldElement(setup.p, x);
+            FpFieldElement y_Qid = new FpFieldElement(setup.p, y);
+            Cypher c = new Cypher() { U = new FpPoint(setup.E, x_Qid, y_Qid), V = secretKey.EncryptFileKey };             
+            string rmsg = d.GetMessage(c);
+            return secretKey.FileKey;
+        }
+
+        
     }
 }

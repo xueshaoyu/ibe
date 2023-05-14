@@ -131,6 +131,9 @@
     <EmbeddedResource Include="FrmRegister.resx">
       <DependentUpon>FrmRegister.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmUserChangePwd.resx">
+      <DependentUpon>FrmUserChangePwd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmUserEdit.resx">
       <DependentUpon>FrmUserEdit.cs</DependentUpon>
     </EmbeddedResource>

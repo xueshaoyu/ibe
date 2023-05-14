@@ -23,10 +23,12 @@ namespace IBE.Data.Models
         /// <summary>
         /// 加密后的秘钥
         /// </summary>
-        public int EncryptFileKey { get; set; }
+        public string EncryptFileKey { get; set; }
         /// <summary>
         /// 身份加密主秘钥
         /// </summary>
         public int IBEMainKey { get; set; }
+        public string IBEX { get; set; }
+        public string IBEY { get; set; }
     }
 }

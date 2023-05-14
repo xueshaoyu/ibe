@@ -42,7 +42,7 @@ namespace IBE
         private BigInteger q;
 
         // p
-        public BigInteger p { get; }
+        public BigInteger p { get; } 
 
         /// <summary>
         /// 曲线
@@ -91,9 +91,9 @@ namespace IBE
         /// <summary>
         /// 保证随机数可用,能够解出加密信息
         /// </summary>
-        public void EnsureMainKeyRight(string id)
+        public void EnsureMainKeyRight(string email)
         { 
-            var secretKey = MyDbContext.Instance.SecretKeys.FirstOrDefault(p => p.Email == id);
+            var secretKey = MyDbContext.Instance.SecretKeys.FirstOrDefault(p => p.Email == email);
             var count = 0;
             if (secretKey != null)
             {
@@ -116,8 +116,8 @@ namespace IBE
                 var msg = "hello,你好hello,你好hello,你好hello,你好hello,你好";
               
 
-                Encrypt e = new Encrypt(id, GetP(), GetPpub(), p, E, k);
-                var d_id = Exctract(id);
+                Encrypt e = new Encrypt(email, GetP(), GetPpub(), p, E, k);
+                var d_id = Exctract(email);
                 var dmsg = e.GetCypher(msg);
 
                 var d = new Decrypt(d_id, p, k);
@@ -138,8 +138,13 @@ namespace IBE
                 if (secretKey == null)
                 {
                     secretKey = new SecretKey();
-                    secretKey.Email = id;
+                    secretKey.Email = email;
                     secretKey.IBEMainKey = s;
+                    secretKey.IBEX = dmsg.U.X.ToBigInteger().ToString();
+                    secretKey.IBEY = dmsg.U.Y.ToBigInteger().ToString();
+                    secretKey.FileKey = RandomHelper.GenerateRandomNumber(10);
+                    var temp = e.GetCypher(secretKey.FileKey);
+                    secretKey.EncryptFileKey = temp.V;
                     MyDbContext.Instance.SecretKeys.Add(secretKey);
                     MyDbContext.Instance.SaveChanges();
                 }
@@ -164,18 +169,25 @@ namespace IBE
         {
             return Ppub;
         }
-
+        /// <summary>
+        /// 设置公钥
+        /// </summary>
+        /// <param name="value"></param>
+        public void SetPpub(FpPoint value)
+        {
+              Ppub=value;
+        }
         /// <summary>
         /// 颁发私钥
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="email"></param>
         /// <param name="decrypt">是否解密</param>
         /// <returns></returns>
-        public FpPoint Exctract(string id, bool decrypt = false)
+        public FpPoint Exctract(string email, bool decrypt = false)
         {
             if (decrypt)
             {
-                var secretKey = MyDbContext.Instance.SecretKeys.FirstOrDefault(p => p.Email == id);
+                var secretKey = MyDbContext.Instance.SecretKeys.FirstOrDefault(p => p.Email == email);
                 if (secretKey != null)
                 {
                     s = secretKey.IBEMainKey;
@@ -189,8 +201,8 @@ namespace IBE
 
             //  y^2 = x^3 + 117050x^2 + x
             //	            y ^ 2 = x ^ 3 + 229969x ^ 2 + x 这个公式不容易出现解不出的情况
-            BigInteger x = GeneralFunctions.H1hash(id, p);
-            BigInteger y = x.Pow(3).Add(x.Pow(2).Multiply(new BigInteger("229969", 10))).Add(x).Pow(2).ModInverse(p);
+            BigInteger x = GeneralFunctions.H1hash(email, p);
+            BigInteger y = x.Pow(3).Add(x.Pow(2).Multiply(new BigInteger("117050", 10))).Add(x).Pow(2).ModInverse(p);
             // BigInteger y = x.Pow(3).Add(x.Pow(2).Multiply(new BigInteger("117050", 10))).Add(x).Pow(2).ModInverse(p);
             //BigInteger y = x.Pow(3).Add(x.Pow(2).Multiply(new BigInteger("0", 10))).Add(x).Pow(2).ModInverse(p);
 
