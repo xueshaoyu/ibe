@@ -28,4 +28,4 @@ bld/
 Config/
 *.suo
 .vs/
-/IBE/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/IBE/obj/
