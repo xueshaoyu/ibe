@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AESHelper.cs" />
     <Compile Include="Cypher.cs" />
     <Compile Include="Decrypt.cs" />
     <Compile Include="DesHelper.cs" />

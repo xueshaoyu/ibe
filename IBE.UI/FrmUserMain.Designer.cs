@@ -43,9 +43,12 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.btnCreateKey = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblAesKey = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -105,17 +108,17 @@
             this.listBox1.Location = new System.Drawing.Point(7, 70);
             this.listBox1.Margin = new System.Windows.Forms.Padding(2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(1047, 280);
+            this.listBox1.Size = new System.Drawing.Size(1047, 256);
             this.listBox1.TabIndex = 10;
             // 
             // btnSend
             // 
             this.btnSend.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSend.Location = new System.Drawing.Point(7, 378);
+            this.btnSend.Location = new System.Drawing.Point(118, 378);
             this.btnSend.Margin = new System.Windows.Forms.Padding(2);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(1047, 40);
+            this.btnSend.Size = new System.Drawing.Size(936, 40);
             this.btnSend.TabIndex = 9;
             this.btnSend.Text = "发送加密文件";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -151,14 +154,14 @@
             // 修改密码ToolStripMenuItem
             // 
             this.修改密码ToolStripMenuItem.Name = "修改密码ToolStripMenuItem";
-            this.修改密码ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.修改密码ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.修改密码ToolStripMenuItem.Text = "修改密码";
             this.修改密码ToolStripMenuItem.Click += new System.EventHandler(this.修改密码ToolStripMenuItem_Click);
             // 
             // 退出登录ToolStripMenuItem
             // 
             this.退出登录ToolStripMenuItem.Name = "退出登录ToolStripMenuItem";
-            this.退出登录ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.退出登录ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.退出登录ToolStripMenuItem.Text = "退出登录";
             this.退出登录ToolStripMenuItem.Click += new System.EventHandler(this.退出登录ToolStripMenuItem_Click);
             // 
@@ -175,6 +178,9 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lblAesKey);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.btnCreateKey);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.btnSend);
             this.tabPage1.Controls.Add(this.label2);
@@ -202,18 +208,17 @@
             this.tabPage2.Text = "下载文件";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // listBox2
+            // checkBox1
             // 
-            this.listBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 12;
-            this.listBox2.Location = new System.Drawing.Point(0, 5);
-            this.listBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(1068, 352);
-            this.listBox2.TabIndex = 11;
+            this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(9, 359);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(180, 16);
+            this.checkBox1.TabIndex = 17;
+            this.checkBox1.Text = "仅显示查询发送给自己的文件";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // button3
             // 
@@ -228,17 +233,45 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // checkBox1
+            // listBox2
             // 
-            this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(9, 359);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(180, 16);
-            this.checkBox1.TabIndex = 17;
-            this.checkBox1.Text = "仅显示查询发送给自己的文件";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.listBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 12;
+            this.listBox2.Location = new System.Drawing.Point(0, 5);
+            this.listBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(1068, 352);
+            this.listBox2.TabIndex = 11;
+            // 
+            // btnCreateKey
+            // 
+            this.btnCreateKey.Location = new System.Drawing.Point(8, 378);
+            this.btnCreateKey.Name = "btnCreateKey";
+            this.btnCreateKey.Size = new System.Drawing.Size(105, 40);
+            this.btnCreateKey.TabIndex = 15;
+            this.btnCreateKey.Text = "生成秘钥";
+            this.btnCreateKey.UseVisualStyleBackColor = true;
+            this.btnCreateKey.Click += new System.EventHandler(this.btnCreateKey_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 348);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "秘钥：";
+            // 
+            // lblAesKey
+            // 
+            this.lblAesKey.AutoSize = true;
+            this.lblAesKey.Location = new System.Drawing.Point(55, 348);
+            this.lblAesKey.Name = "lblAesKey";
+            this.lblAesKey.Size = new System.Drawing.Size(0, 12);
+            this.lblAesKey.TabIndex = 17;
             // 
             // FrmUserMain
             // 
@@ -283,5 +316,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button btnCreateKey;
+        private System.Windows.Forms.Label lblAesKey;
+        private System.Windows.Forms.Label label3;
     }
 }

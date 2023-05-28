@@ -17,22 +17,30 @@ namespace IBE.Data.Models
         /// 发送人
         /// </summary>
         public string Sender { get; set; }
+
         /// <summary>
         /// 目标邮箱地址
         /// </summary>
         public string DestEmail { get; set; }
+
         /// <summary>
         /// 文件名
         /// </summary>
         public string FileName { get; set; }
+
         /// <summary>
         /// 加密文件路径
         /// </summary>
         public string EncryptFilePath { get; set; }
+
+        public string AesSourceKey { get; set; }
+        public string AesEncryptKey { get; set; }
+
         /// <summary>
         /// 时间
         /// </summary>
-        public DateTime Time { get; set; } = DateTime.Now; 
+        public DateTime Time { get; set; } = DateTime.Now;
+
         /// <summary>
         /// 是否已下载
         /// </summary>

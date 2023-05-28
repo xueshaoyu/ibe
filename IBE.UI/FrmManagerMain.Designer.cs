@@ -54,11 +54,6 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnFileDelete = new System.Windows.Forms.Button();
             this.dgv3 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -69,8 +64,14 @@
             this.StudentLoginAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
@@ -92,7 +93,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 450);
+            this.tabControl1.Size = new System.Drawing.Size(1024, 450);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -107,7 +108,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(792, 424);
+            this.tabPage1.Size = new System.Drawing.Size(1016, 424);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "管理员管理";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -180,7 +181,7 @@
             this.dgv1.RowHeadersWidth = 51;
             this.dgv1.RowTemplate.Height = 23;
             this.dgv1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv1.Size = new System.Drawing.Size(786, 384);
+            this.dgv1.Size = new System.Drawing.Size(1010, 384);
             this.dgv1.TabIndex = 0;
             // 
             // ManagerName
@@ -222,7 +223,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(792, 424);
+            this.tabPage2.Size = new System.Drawing.Size(1016, 424);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "用户管理";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -295,7 +296,7 @@
             this.dgv2.RowHeadersWidth = 51;
             this.dgv2.RowTemplate.Height = 23;
             this.dgv2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv2.Size = new System.Drawing.Size(786, 384);
+            this.dgv2.Size = new System.Drawing.Size(1010, 384);
             this.dgv2.TabIndex = 4;
             // 
             // TeacherName
@@ -333,7 +334,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(792, 424);
+            this.tabPage3.Size = new System.Drawing.Size(1016, 424);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "文件管理";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -355,6 +356,8 @@
             this.dgv3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
+            this.Column9,
+            this.Column10,
             this.Column2,
             this.Column3,
             this.Column4,
@@ -367,43 +370,8 @@
             this.dgv3.RowHeadersWidth = 51;
             this.dgv3.RowTemplate.Height = 23;
             this.dgv3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv3.Size = new System.Drawing.Size(786, 384);
+            this.dgv3.Size = new System.Drawing.Size(1010, 384);
             this.dgv3.TabIndex = 4;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "FileName";
-            this.Column1.HeaderText = "文件名称";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "EncryptFilePath";
-            this.Column2.HeaderText = "文件路径";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Sender";
-            this.Column3.HeaderText = "发送人";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "DestEmail";
-            this.Column4.HeaderText = "接收人";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "Time";
-            this.Column5.HeaderText = "时间";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
             // 
             // tabPage4
             // 
@@ -414,7 +382,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(792, 424);
+            this.tabPage4.Size = new System.Drawing.Size(1016, 424);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "秘钥管理";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -456,7 +424,6 @@
             this.dgv4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
             this.Column6});
             this.dgv4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgv4.Location = new System.Drawing.Point(3, 37);
@@ -466,7 +433,7 @@
             this.dgv4.RowHeadersWidth = 51;
             this.dgv4.RowTemplate.Height = 23;
             this.dgv4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv4.Size = new System.Drawing.Size(786, 384);
+            this.dgv4.Size = new System.Drawing.Size(1010, 384);
             this.dgv4.TabIndex = 8;
             // 
             // StudentEmail
@@ -504,13 +471,6 @@
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "EncryptFileKey";
-            this.dataGridViewTextBoxColumn2.HeaderText = "加密秘钥";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
             // Column6
             // 
             this.Column6.DataPropertyName = "IBEMainKey";
@@ -518,11 +478,62 @@
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "FileName";
+            this.Column1.HeaderText = "文件名称";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "AesSourceKey";
+            this.Column9.HeaderText = "文件加密秘钥明文";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 200;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "AesEncryptKey";
+            this.Column10.HeaderText = "文件加密秘钥密文";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 200;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "EncryptFilePath";
+            this.Column2.HeaderText = "文件路径";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Sender";
+            this.Column3.HeaderText = "发送人";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "DestEmail";
+            this.Column4.HeaderText = "接收人";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "Time";
+            this.Column5.HeaderText = "时间";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
             // FrmManagerMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1024, 450);
             this.Controls.Add(this.tabControl1);
             this.Name = "FrmManagerMain";
             this.Text = "管理员主界面";
@@ -564,11 +575,6 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button btnUserDisable;
         private System.Windows.Forms.Button btnUserEnable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Button btnKey;
         private System.Windows.Forms.DataGridView dgv4;
         private System.Windows.Forms.DataGridViewTextBoxColumn ManagerName;
@@ -584,7 +590,13 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

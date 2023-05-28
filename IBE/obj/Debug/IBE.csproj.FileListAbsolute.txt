@@ -53,3 +53,5 @@ E:\ibe\IBE\obj\Debug\IBE.csproj.CoreCompileInputs.cache
 E:\ibe\IBE\obj\Debug\IBE.csproj.CopyComplete
 E:\ibe\IBE\obj\Debug\IBE.exe
 E:\ibe\IBE\obj\Debug\IBE.pdb
+D:\test\ibe\IBE\bin\Debug\IBE.Data.dll
+D:\test\ibe\IBE\bin\Debug\IBE.Data.pdb
