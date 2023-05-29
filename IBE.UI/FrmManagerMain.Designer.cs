@@ -384,7 +384,7 @@
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(1016, 424);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "秘钥管理";
+            this.tabPage4.Text = "密钥管理";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -474,7 +474,7 @@
             // Column6
             // 
             this.Column6.DataPropertyName = "IBEMainKey";
-            this.Column6.HeaderText = "IBE主秘钥";
+            this.Column6.HeaderText = "IBE主密钥";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
@@ -488,7 +488,7 @@
             // Column9
             // 
             this.Column9.DataPropertyName = "AesSourceKey";
-            this.Column9.HeaderText = "文件加密秘钥明文";
+            this.Column9.HeaderText = "文件加密密钥明文";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             this.Column9.Width = 200;
@@ -496,7 +496,7 @@
             // Column10
             // 
             this.Column10.DataPropertyName = "AesEncryptKey";
-            this.Column10.HeaderText = "文件加密秘钥密文";
+            this.Column10.HeaderText = "文件加密密钥密文";
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
             this.Column10.Width = 200;
@@ -589,8 +589,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TeacherEmail;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
@@ -598,5 +596,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }

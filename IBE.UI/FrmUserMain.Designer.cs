@@ -42,13 +42,13 @@
             this.退出登录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lblAesKey = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnCreateKey = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button3 = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
-            this.btnCreateKey = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblAesKey = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -195,6 +195,33 @@
             this.tabPage1.Text = "发送文件";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // lblAesKey
+            // 
+            this.lblAesKey.AutoSize = true;
+            this.lblAesKey.Location = new System.Drawing.Point(55, 348);
+            this.lblAesKey.Name = "lblAesKey";
+            this.lblAesKey.Size = new System.Drawing.Size(0, 12);
+            this.lblAesKey.TabIndex = 17;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 348);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "密钥：";
+            // 
+            // btnCreateKey
+            // 
+            this.btnCreateKey.Location = new System.Drawing.Point(8, 378);
+            this.btnCreateKey.Name = "btnCreateKey";
+            this.btnCreateKey.Size = new System.Drawing.Size(105, 40);
+            this.btnCreateKey.TabIndex = 15;
+            this.btnCreateKey.Text = "生成密钥";
+            this.btnCreateKey.UseVisualStyleBackColor = true;
+            this.btnCreateKey.Click += new System.EventHandler(this.btnCreateKey_Click);
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.checkBox1);
@@ -245,33 +272,6 @@
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(1068, 352);
             this.listBox2.TabIndex = 11;
-            // 
-            // btnCreateKey
-            // 
-            this.btnCreateKey.Location = new System.Drawing.Point(8, 378);
-            this.btnCreateKey.Name = "btnCreateKey";
-            this.btnCreateKey.Size = new System.Drawing.Size(105, 40);
-            this.btnCreateKey.TabIndex = 15;
-            this.btnCreateKey.Text = "生成秘钥";
-            this.btnCreateKey.UseVisualStyleBackColor = true;
-            this.btnCreateKey.Click += new System.EventHandler(this.btnCreateKey_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 348);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "秘钥：";
-            // 
-            // lblAesKey
-            // 
-            this.lblAesKey.AutoSize = true;
-            this.lblAesKey.Location = new System.Drawing.Point(55, 348);
-            this.lblAesKey.Name = "lblAesKey";
-            this.lblAesKey.Size = new System.Drawing.Size(0, 12);
-            this.lblAesKey.TabIndex = 17;
             // 
             // FrmUserMain
             // 
