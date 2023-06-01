@@ -1,4 +1,5 @@
 ﻿using IBE.Data.Models;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,24 +32,24 @@ namespace IBE.UI
             var anwser3 = txtAnwser3.Text;
             var q1 = cbbQ1.Text;
             var q2 = cbbQ2.Text;
-            var q3 = cbbQ3.Text; 
+            var q3 = cbbQ3.Text;
 
-            if(string .IsNullOrWhiteSpace(userName)|| string.IsNullOrWhiteSpace(trueName) || string.IsNullOrWhiteSpace(pwd)||
+            if (string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(trueName) || string.IsNullOrWhiteSpace(pwd) ||
                 string.IsNullOrWhiteSpace(confirmPwd) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(anwser1) ||
-                string.IsNullOrWhiteSpace(anwser2) || string.IsNullOrWhiteSpace(anwser3) || string.IsNullOrWhiteSpace(q1)||
+                string.IsNullOrWhiteSpace(anwser2) || string.IsNullOrWhiteSpace(anwser3) || string.IsNullOrWhiteSpace(q1) ||
                 string.IsNullOrWhiteSpace(q2) || string.IsNullOrWhiteSpace(q3))
             {
-                MessageBox.Show("注册信息不完整");
+                UIMessageBox.Show("注册信息不完整");
                 return;
             }
-            if(pwd!=confirmPwd)
+            if (pwd != confirmPwd)
             {
-                MessageBox.Show("两次密码不一致");
+                UIMessageBox.Show("两次密码不一致");
                 return;
             }
             if (MyDbContext.Instance.Users.FirstOrDefault(p => p.Email == email || p.LoginAccount == userName) != null)
             {
-                MessageBox.Show("用户已存在或者邮箱已被注册");
+                UIMessageBox.Show("用户已存在或者邮箱已被注册");
                 return;
             }
             var user = new User()
@@ -66,18 +67,18 @@ namespace IBE.UI
             };
             MyDbContext.Instance.Users.Add(user);
             MyDbContext.Instance.SaveChanges();
-            MessageBox.Show("注册成功");
+            UIMessageBox.Show("注册成功");
             this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
-
         }
-        private void LoadQuestion(ComboBox combobox,int defaultSelected)
+
+        private void LoadQuestion(UIComboBox combobox, int defaultSelected)
         {
-            combobox.DropDownStyle = ComboBoxStyle.DropDownList;
+            combobox.DropDownStyle = UIDropDownStyle.DropDownList;
             combobox.Items.Add("1.你的生日是？");
             combobox.Items.Add("2.你的出生地是？");
             combobox.Items.Add("3.你的小学老师是？");

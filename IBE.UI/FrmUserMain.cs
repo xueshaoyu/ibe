@@ -1,6 +1,7 @@
 ﻿using IBE.Data.Models;
 using Org.BouncyCastle.Math;
 using Org.BouncyCastle.Math.EC;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,17 +41,17 @@ namespace IBE.UI
             //发送加密文件
             if (aesKey == "")
             {
-                MessageBox.Show("轻轨先生成秘钥");
+                UIMessageBox.Show("轻轨先生成秘钥");
                 return;
             }
             if (txtFilename.Text == "" || !File.Exists(txtFilename.Text))
             {
-                MessageBox.Show("请选择需要传输的文件");
+                UIMessageBox.Show("请选择需要传输的文件");
                 return;
             }
             if (listBox1.SelectedIndex < 0)
             {
-                MessageBox.Show("请选择需要传输的教师");
+                UIMessageBox.Show("请选择需要传输的教师");
                 return;
             }
             var obj = listBox1.SelectedItem as User;
@@ -77,7 +78,7 @@ namespace IBE.UI
             MyDbContext.Instance.SaveChanges();
             aesKey = "";
             lblAesKey.Text = "";
-            MessageBox.Show("发送加密文件成功");
+            UIMessageBox.Show("发送加密文件成功");
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
@@ -148,19 +149,19 @@ namespace IBE.UI
 
             if (listBox2.SelectedIndex < 0)
             {
-                MessageBox.Show("请先选择行");
+                UIMessageBox.Show("请先选择行");
                 return;
             }
             var item = listBox2.SelectedItem as ExchangeFileData;
             var sec = MyDbContext.Instance.SecretKeys.FirstOrDefault(p => p.Email == SessionManager.User.Email);
             if (sec == null)
             {
-                MessageBox.Show("无法下载文件。因为无法解密。");
+                UIMessageBox.Show("无法下载文件。因为无法解密。");
                 return;
             }
             if (!sec.Enable)
             {
-                MessageBox.Show("无法下载文件。因为秘钥被禁用，请联系管理员。");
+                UIMessageBox.Show("无法下载文件。因为秘钥被禁用，请联系管理员。");
                 return;
             }
             var aesKey = EncryptHelper.DecryptAesKeyByEmail(SessionManager.User.Email, item.AesEncryptKey);
@@ -174,7 +175,7 @@ namespace IBE.UI
                 var decryptContent = AESHelper.AESDecrypt(encryptFileContent, aesKey);
                 File.WriteAllText(saveFileDialog1.FileName, decryptContent);
                 //  DesHelper.DecryptFile(item.EncryptFilePath, saveFileDialog1.FileName, desKey);
-                MessageBox.Show("接收文件成功");
+                UIMessageBox.Show("接收文件成功");
                 item.IsDowload = true;
             }
         }
@@ -191,7 +192,7 @@ namespace IBE.UI
             //生成秘钥
             aesKey = RandomHelper.GenerateRandomNumber(10);
             lblAesKey.Text = aesKey;
-            MessageBox.Show(aesKey, "信息提示");
+            UIMessageBox.Show(aesKey, "信息提示");
         }
     }
 }

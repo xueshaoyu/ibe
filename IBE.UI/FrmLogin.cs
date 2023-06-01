@@ -1,4 +1,5 @@
 ﻿using IBE.Data.Models;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace IBE.UI
     public partial class FrmLogin : Form
     {
         public static FrmLogin Instance { get; set; }
+
         public FrmLogin()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace IBE.UI
         {
             if (comboBox1.Text == "" || textBox1.Text == "" || textBox2.Text == "")
             {
-                MessageBox.Show("请填写登录信息");
+                UIMessageBox.Show("请填写登录信息");
                 return;
             }
             MyDbContext context = MyDbContext.Instance;
@@ -37,12 +39,12 @@ namespace IBE.UI
                 var manager = context.Managers.FirstOrDefault(p => p.LoginAccount == textBox1.Text && p.Password == textBox2.Text);
                 if (manager == null)
                 {
-                    MessageBox.Show("登录失败");
+                    UIMessageBox.Show("登录失败");
                     return;
                 }
-                if(!manager.Enable)
+                if (!manager.Enable)
                 {
-                    MessageBox.Show("管理员被禁用");
+                    UIMessageBox.Show("管理员被禁用");
                     return;
                 }
                 SessionManager.Manager = manager;
@@ -55,12 +57,12 @@ namespace IBE.UI
                 var user = context.Users.FirstOrDefault(p => p.LoginAccount == textBox1.Text && p.Password == textBox2.Text);
                 if (user == null)
                 {
-                    MessageBox.Show("登录失败");
+                    UIMessageBox.Show("登录失败");
                     return;
                 }
-                if(user.Enable==false)
+                if (user.Enable == false)
                 {
-                    MessageBox.Show("用户被禁用");
+                    UIMessageBox.Show("用户被禁用");
                     return;
                 }
                 this.textBox1.Text = "";
@@ -70,7 +72,6 @@ namespace IBE.UI
                 frm.Show();
                 Hide();
             }
-            
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿using IBE.Data.Models;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,9 +53,9 @@ namespace IBE.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtPassword.Text==""|| txtAccount.Text=="")
+            if (txtPassword.Text == "" || txtAccount.Text == "")
             {
-                MessageBox.Show("用户名密码不能为空");
+                UIMessageBox.Show("用户名密码不能为空");
                 return;
             }
             Manager.Password = txtPassword.Text;

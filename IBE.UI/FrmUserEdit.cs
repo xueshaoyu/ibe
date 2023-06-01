@@ -1,4 +1,5 @@
 ﻿using IBE.Data.Models;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,7 +46,7 @@ namespace IBE.UI
         {
             IsEdit = user != null;
             User = user;
-            if(User!=null)
+            if (User != null)
             {
                 txtUserName.ReadOnly = false;
                 txtEmail.ReadOnly = false;
@@ -61,6 +62,7 @@ namespace IBE.UI
             cbbQ2.Text = user.SecondQuestion;
             cbbQ3.Text = user.ThirdQuestion;
         }
+
         private void btnOk_Click(object sender, EventArgs e)
         {
             //注册
@@ -80,13 +82,13 @@ namespace IBE.UI
                 string.IsNullOrWhiteSpace(anwser2) || string.IsNullOrWhiteSpace(anwser3) || string.IsNullOrWhiteSpace(q1) ||
                 string.IsNullOrWhiteSpace(q2) || string.IsNullOrWhiteSpace(q3))
             {
-                MessageBox.Show("注册信息不完整");
+                UIMessageBox.Show("注册信息不完整");
                 return;
             }
 
-            if (!IsEdit&&MyDbContext.Instance.Users.FirstOrDefault(p => p.Email == email || p.LoginAccount == userName) != null)
+            if (!IsEdit && MyDbContext.Instance.Users.FirstOrDefault(p => p.Email == email || p.LoginAccount == userName) != null)
             {
-                MessageBox.Show("用户已存在或者邮箱已被注册");
+                UIMessageBox.Show("用户已存在或者邮箱已被注册");
                 return;
             }
 
@@ -109,18 +111,18 @@ namespace IBE.UI
                 MyDbContext.Instance.Users.Add(User);
             }
             MyDbContext.Instance.SaveChanges();
-            MessageBox.Show("注册成功");
+            UIMessageBox.Show("注册成功");
             this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
-
         }
-        private void LoadQuestion(ComboBox combobox, int defaultSelected)
+
+        private void LoadQuestion(UIComboBox combobox, int defaultSelected)
         {
-            combobox.DropDownStyle = ComboBoxStyle.DropDownList;
+            combobox.DropDownStyle = UIDropDownStyle.DropDownList;
             combobox.Items.Add("1.你的生日是？");
             combobox.Items.Add("2.你的出生地是？");
             combobox.Items.Add("3.你的小学老师是？");
@@ -130,11 +132,8 @@ namespace IBE.UI
             combobox.SelectedIndex = defaultSelected;
         }
 
-
-
         private void FrmUserEdit_Load(object sender, EventArgs e)
         {
-
             LoadQuestion(cbbQ1, 0);
             LoadQuestion(cbbQ2, 1);
             LoadQuestion(cbbQ3, 2);

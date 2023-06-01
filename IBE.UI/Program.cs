@@ -1,4 +1,5 @@
 ﻿using IBE.Data.Models;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,9 +41,7 @@ namespace IBE.UI
             {
                 str = string.Format("Application UnhandledError:{0}", e);
             }
-
-            MessageBox.Show(str, "系统错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+            UIMessageBox.ShowError(str);
         }
 
         private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
@@ -61,8 +60,7 @@ namespace IBE.UI
                 str = string.Format("应用程序线程错误:{0}", e);
             }
 
-            MessageBox.Show(str, "系统错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+            UIMessageBox.ShowError(str);
         }
     }
 }

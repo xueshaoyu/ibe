@@ -1,4 +1,5 @@
 ﻿using IBE.Data.Models;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,26 +23,26 @@ namespace IBE.UI
         {
             var oldPwd = txtOldPwd.Text;
             var newPwd = txtNewPwd.Text;
-            var newConfirmPwd = txtNewConfirmPwd.Text; 
-            if(string.IsNullOrWhiteSpace(oldPwd)|| string.IsNullOrWhiteSpace(newPwd) || string.IsNullOrWhiteSpace(newConfirmPwd))
+            var newConfirmPwd = txtNewConfirmPwd.Text;
+            if (string.IsNullOrWhiteSpace(oldPwd) || string.IsNullOrWhiteSpace(newPwd) || string.IsNullOrWhiteSpace(newConfirmPwd))
             {
-                MessageBox.Show("未填写信息");
+                UIMessageBox.Show("未填写信息");
                 return;
             }
-            if (newPwd!=newConfirmPwd)
+            if (newPwd != newConfirmPwd)
             {
-                MessageBox.Show("两次新密码不一致");
+                UIMessageBox.Show("两次新密码不一致");
                 return;
             }
             if (SessionManager.User.Password != oldPwd)
             {
-                MessageBox.Show("原密码不正确");
+                UIMessageBox.Show("原密码不正确");
                 return;
             }
             SessionManager.User.Password = newPwd;
 
             MyDbContext.Instance.SaveChanges();
-            MessageBox.Show("修改密码成功");
+            UIMessageBox.Show("修改密码成功");
             this.Close();
         }
 

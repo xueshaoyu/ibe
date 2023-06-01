@@ -1,4 +1,5 @@
 ﻿using IBE.Data.Models;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,19 +37,21 @@ namespace IBE.UI
             dgv1.DataSource = MyDbContext.Instance.Managers.Where(p => true).ToList();
         }
 
-        
         private void LoadUserList()
         {
             dgv2.DataSource = MyDbContext.Instance.Users.Where(p => true).ToList();
         }
+
         private void LoadFileList()
         {
             dgv3.DataSource = MyDbContext.Instance.ExchangeFileDatas.Where(p => true).ToList();
         }
+
         private void LoadSecretKeyList()
         {
             dgv4.DataSource = MyDbContext.Instance.SecretKeys.Where(p => true).ToList();
         }
+
         private void btnMagAdd_Click(object sender, EventArgs e)
         {
             var frm = new FrmManagerEdit();
@@ -63,7 +66,7 @@ namespace IBE.UI
         {
             if (dgv1.SelectedRows.Count == 0)
             {
-                MessageBox.Show("请先选择行");
+                UIMessageBox.Show("请先选择行");
                 return;
             }
             var item = dgv1.CurrentRow.DataBoundItem as Manager;
@@ -80,35 +83,35 @@ namespace IBE.UI
         {
             if (dgv1.SelectedRows.Count == 0)
             {
-                MessageBox.Show("请先选择行");
+                UIMessageBox.Show("请先选择行");
                 return;
             }
             var item = dgv1.CurrentRow.DataBoundItem as Manager;
             if (!item.AllowDelete)
             {
-                MessageBox.Show("不能删除内置账户");
+                UIMessageBox.Show("不能删除内置账户");
                 return;
             }
-            if (MessageBox.Show("删除后，数据将不可恢复，请谨慎操作。\n是否继续删除？", "警告", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (!UIMessageBox.ShowAsk("删除后，数据将不可恢复，请谨慎操作。\n是否继续删除？"))
                 return;
             MyDbContext.Instance.Managers.Remove(item);
 
             MyDbContext.Instance.SaveChanges();
             LoadManagerList();
-        } 
-
+        }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (tabControl1.SelectedIndex)
             {
-
                 case 0:
                     LoadManagerList();
-                    break; 
+                    break;
+
                 case 1:
                     LoadUserList();
                     break;
+
                 default:
                     break;
             }
@@ -122,7 +125,6 @@ namespace IBE.UI
 
         private void btnUserAdd_Click(object sender, EventArgs e)
         {
-
             var frm = new FrmUserEdit();
             var r = frm.ShowDialog();
             if (r == DialogResult.OK)
@@ -135,7 +137,7 @@ namespace IBE.UI
         {
             if (dgv2.SelectedRows.Count == 0)
             {
-                MessageBox.Show("请先选择行");
+                UIMessageBox.Show("请先选择行");
                 return;
             }
             var item = dgv2.CurrentRow.DataBoundItem as User;
@@ -152,10 +154,10 @@ namespace IBE.UI
         {
             if (dgv2.SelectedRows.Count == 0)
             {
-                MessageBox.Show("请先选择行");
+                UIMessageBox.Show("请先选择行");
                 return;
             }
-            if (MessageBox.Show("删除后，数据将不可恢复，请谨慎操作。\n是否继续删除？", "警告", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (!UIMessageBox.ShowAsk("删除后，数据将不可恢复，请谨慎操作。\n是否继续删除？"))
                 return;
             var item = dgv2.CurrentRow.DataBoundItem as User;
 
@@ -169,7 +171,7 @@ namespace IBE.UI
         {
             if (dgv2.SelectedRows.Count == 0)
             {
-                MessageBox.Show("请先选择行");
+                UIMessageBox.Show("请先选择行");
                 return;
             }
             var item = dgv2.CurrentRow.DataBoundItem as User;
@@ -182,24 +184,23 @@ namespace IBE.UI
         {
             if (dgv2.SelectedRows.Count == 0)
             {
-                MessageBox.Show("请先选择行");
+                UIMessageBox.Show("请先选择行");
                 return;
             }
             var item = dgv2.CurrentRow.DataBoundItem as User;
             item.Enable = false;
             MyDbContext.Instance.SaveChanges();
             LoadUserList();
-
         }
 
         private void btnFileDelete_Click(object sender, EventArgs e)
         {
             if (dgv3.SelectedRows.Count == 0)
             {
-                MessageBox.Show("请先选择行");
+                UIMessageBox.Show("请先选择行");
                 return;
             }
-            if (MessageBox.Show("删除后，数据将不可恢复，请谨慎操作。\n是否继续删除？", "警告", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (!UIMessageBox.ShowAsk("删除后，数据将不可恢复，请谨慎操作。\n是否继续删除？"))
                 return;
             var item = dgv3.CurrentRow.DataBoundItem as ExchangeFileData;
 
@@ -211,13 +212,12 @@ namespace IBE.UI
 
         private void btnKey_Click(object sender, EventArgs e)
         {
-
             if (dgv4.SelectedRows.Count == 0)
             {
-                MessageBox.Show("请先选择行");
+                UIMessageBox.Show("请先选择行");
                 return;
             }
-            if (MessageBox.Show("删除后，加密文件将永久无法解密，请谨慎操作。\n是否继续删除？", "警告", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (!UIMessageBox.ShowAsk("删除后，加密文件将永久无法解密，请谨慎操作。\n是否继续删除？"))
                 return;
             var item = dgv4.CurrentRow.DataBoundItem as SecretKey;
 
@@ -231,7 +231,7 @@ namespace IBE.UI
         {
             if (dgv1.SelectedRows.Count == 0)
             {
-                MessageBox.Show("请先选择行");
+                UIMessageBox.Show("请先选择行");
                 return;
             }
             var item = dgv1.CurrentRow.DataBoundItem as Manager;
@@ -242,16 +242,15 @@ namespace IBE.UI
 
         private void btnMagDisable_Click(object sender, EventArgs e)
         {
-
             if (dgv1.SelectedRows.Count == 0)
             {
-                MessageBox.Show("请先选择行");
+                UIMessageBox.Show("请先选择行");
                 return;
             }
             var item = dgv1.CurrentRow.DataBoundItem as Manager;
-            if(item.Id==SessionManager.Manager.Id)
+            if (item.Id == SessionManager.Manager.Id)
             {
-                MessageBox.Show("不能禁用自己");
+                UIMessageBox.Show("不能禁用自己");
                 return;
             }
             item.Enable = false;
@@ -265,10 +264,10 @@ namespace IBE.UI
 
             if (dgv4.SelectedRows.Count == 0)
             {
-                MessageBox.Show("请先选择行");
+                UIMessageBox.Show("请先选择行");
                 return;
             }
-            if (MessageBox.Show("禁用后，网盘用户将无法下载解密文件。\n是否继续禁用？", "警告", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (!UIMessageBox.ShowAsk("禁用后，网盘用户将无法下载解密文件。\n是否继续禁用？"))
                 return;
             var item = dgv4.CurrentRow.DataBoundItem as SecretKey;
 
@@ -284,9 +283,9 @@ namespace IBE.UI
 
             if (dgv4.SelectedRows.Count == 0)
             {
-                MessageBox.Show("请先选择行");
+                UIMessageBox.Show("请先选择行");
                 return;
-            } 
+            }
             var item = dgv4.CurrentRow.DataBoundItem as SecretKey;
 
             item.Enable = true;
