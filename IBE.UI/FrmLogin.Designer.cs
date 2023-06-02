@@ -40,18 +40,11 @@
             this.linkLabel2 = new Sunny.UI.UILinkLabel();
             this.SuspendLayout();
             // 
-            // Header
-            // 
-            //this.Header.Size = new System.Drawing.Size(110, 110);
-            // 
-            // Aside
-            // 
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(26, 60);
+            this.label1.Location = new System.Drawing.Point(21, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 21);
             this.label1.TabIndex = 0;
@@ -62,7 +55,7 @@
             // 
             this.textBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(86, 62);
+            this.textBox1.Location = new System.Drawing.Point(86, 69);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.MinimumSize = new System.Drawing.Size(1, 16);
             this.textBox1.Name = "textBox1";
@@ -99,7 +92,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(31, 35);
+            this.label2.Location = new System.Drawing.Point(26, 36);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 21);
             this.label2.TabIndex = 3;
@@ -126,7 +119,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(31, 105);
+            this.label3.Location = new System.Drawing.Point(26, 106);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 21);
             this.label3.TabIndex = 4;
@@ -136,11 +129,21 @@
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(190)))), ((int)(((byte)(40)))));
+            this.button1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(190)))), ((int)(((byte)(40)))));
+            this.button1.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(203)))), ((int)(((byte)(83)))));
+            this.button1.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(152)))), ((int)(((byte)(32)))));
+            this.button1.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(152)))), ((int)(((byte)(32)))));
             this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.Location = new System.Drawing.Point(98, 153);
             this.button1.MinimumSize = new System.Drawing.Size(1, 1);
             this.button1.Name = "button1";
+            this.button1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(190)))), ((int)(((byte)(40)))));
+            this.button1.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(203)))), ((int)(((byte)(83)))));
+            this.button1.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(152)))), ((int)(((byte)(32)))));
+            this.button1.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(152)))), ((int)(((byte)(32)))));
             this.button1.Size = new System.Drawing.Size(75, 37);
+            this.button1.Style = Sunny.UI.UIStyle.Green;
             this.button1.TabIndex = 4;
             this.button1.Text = "登录";
             this.button1.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -209,17 +212,6 @@
             this.Name = "FrmLogin";
             this.Text = "登录";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
-            this.Controls.SetChildIndex(this.label2, 0);
-            this.Controls.SetChildIndex(this.label1, 0);
-            this.Controls.SetChildIndex(this.textBox1, 0);
-            this.Controls.SetChildIndex(this.comboBox1, 0);
-            this.Controls.SetChildIndex(this.label3, 0);
-            this.Controls.SetChildIndex(this.textBox2, 0);
-            this.Controls.SetChildIndex(this.button1, 0);
-            this.Controls.SetChildIndex(this.button2, 0);
-            this.Controls.SetChildIndex(this.linkLabel1, 0);
-            this.Controls.SetChildIndex(this.linkLabel2, 0);
-//            this.Controls.SetChildIndex(this.Header, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 

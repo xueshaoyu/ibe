@@ -46,9 +46,9 @@
             this.label3 = new Sunny.UI.UILabel();
             this.btnCreateKey = new Sunny.UI.UIButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button3 = new Sunny.UI.UIButton();
             this.listBox2 = new Sunny.UI.UIListBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -59,7 +59,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(1, 42);
+            this.label2.Location = new System.Drawing.Point(2, 44);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 21);
@@ -71,12 +71,22 @@
             // 
             this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSelect.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSelect.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            this.btnSelect.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            this.btnSelect.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(175)))), ((int)(((byte)(83)))));
+            this.btnSelect.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(124)))), ((int)(((byte)(32)))));
+            this.btnSelect.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(124)))), ((int)(((byte)(32)))));
             this.btnSelect.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnSelect.Location = new System.Drawing.Point(1009, 11);
             this.btnSelect.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelect.MinimumSize = new System.Drawing.Size(1, 1);
             this.btnSelect.Name = "btnSelect";
+            this.btnSelect.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            this.btnSelect.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(175)))), ((int)(((byte)(83)))));
+            this.btnSelect.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(124)))), ((int)(((byte)(32)))));
+            this.btnSelect.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(124)))), ((int)(((byte)(32)))));
             this.btnSelect.Size = new System.Drawing.Size(56, 29);
+            this.btnSelect.Style = Sunny.UI.UIStyle.Orange;
             this.btnSelect.TabIndex = 13;
             this.btnSelect.Text = "选择";
             this.btnSelect.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -128,7 +138,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Padding = new System.Windows.Forms.Padding(2);
             this.listBox1.ShowText = false;
-            this.listBox1.Size = new System.Drawing.Size(1061, 235);
+            this.listBox1.Size = new System.Drawing.Size(1061, 263);
             this.listBox1.Style = Sunny.UI.UIStyle.Custom;
             this.listBox1.TabIndex = 10;
             this.listBox1.Text = null;
@@ -237,6 +247,8 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.Location = new System.Drawing.Point(5, 345);
@@ -248,12 +260,23 @@
             // 
             // btnCreateKey
             // 
+            this.btnCreateKey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCreateKey.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCreateKey.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            this.btnCreateKey.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            this.btnCreateKey.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(175)))), ((int)(((byte)(83)))));
+            this.btnCreateKey.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(124)))), ((int)(((byte)(32)))));
+            this.btnCreateKey.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(124)))), ((int)(((byte)(32)))));
             this.btnCreateKey.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnCreateKey.Location = new System.Drawing.Point(8, 378);
             this.btnCreateKey.MinimumSize = new System.Drawing.Size(1, 1);
             this.btnCreateKey.Name = "btnCreateKey";
+            this.btnCreateKey.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            this.btnCreateKey.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(175)))), ((int)(((byte)(83)))));
+            this.btnCreateKey.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(124)))), ((int)(((byte)(32)))));
+            this.btnCreateKey.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(124)))), ((int)(((byte)(32)))));
             this.btnCreateKey.Size = new System.Drawing.Size(105, 40);
+            this.btnCreateKey.Style = Sunny.UI.UIStyle.Orange;
             this.btnCreateKey.TabIndex = 15;
             this.btnCreateKey.Text = "生成密钥";
             this.btnCreateKey.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -271,32 +294,17 @@
             this.tabPage2.Text = "下载文件";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
-            // 
-            this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, -1105);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(237, 25);
-            this.checkBox1.TabIndex = 17;
-            this.checkBox1.Text = "仅显示查询发送给自己的文件";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // button3
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button3.Location = new System.Drawing.Point(11, 372);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Location = new System.Drawing.Point(4, 369);
             this.button3.MinimumSize = new System.Drawing.Size(1, 1);
             this.button3.Name = "button3";
-            this.button3.Radius = 1;
-            this.button3.Size = new System.Drawing.Size(1056, 47);
-            this.button3.TabIndex = 16;
+            this.button3.Size = new System.Drawing.Size(1071, 49);
+            this.button3.TabIndex = 19;
             this.button3.Text = "下载文件";
             this.button3.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -307,21 +315,31 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.listBox2.FormattingEnabled = true;
             this.listBox2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
-            this.listBox2.ItemHeight = 21;
             this.listBox2.ItemSelectForeColor = System.Drawing.Color.White;
-            this.listBox2.Location = new System.Drawing.Point(11, 2);
-            this.listBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.listBox2.Location = new System.Drawing.Point(4, 5);
+            this.listBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listBox2.MinimumSize = new System.Drawing.Size(1, 1);
             this.listBox2.Name = "listBox2";
             this.listBox2.Padding = new System.Windows.Forms.Padding(2);
             this.listBox2.Radius = 1;
             this.listBox2.ShowText = false;
-            this.listBox2.Size = new System.Drawing.Size(1056, 354);
+            this.listBox2.Size = new System.Drawing.Size(1070, 356);
             this.listBox2.Style = Sunny.UI.UIStyle.Custom;
-            this.listBox2.TabIndex = 11;
-            this.listBox2.Text = null;
+            this.listBox2.TabIndex = 18;
+            this.listBox2.Text = "listBox2";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(6, -2549);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(237, 25);
+            this.checkBox1.TabIndex = 17;
+            this.checkBox1.Text = "仅显示查询发送给自己的文件";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // FrmUserMain
             // 
@@ -363,11 +381,11 @@
         private Sunny.UI.UITabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private Sunny.UI.UIButton button3;
-        private Sunny.UI.UIListBox listBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private Sunny.UI.UIButton btnCreateKey;
         private Sunny.UI.UILabel lblAesKey;
         private Sunny.UI.UILabel label3;
+        private Sunny.UI.UIButton button3;
+        private Sunny.UI.UIListBox listBox2;
     }
 }

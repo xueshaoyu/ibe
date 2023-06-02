@@ -91,7 +91,7 @@ namespace IBE.UI
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Size = new System.Drawing.Size(469, 193);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "请输入要找回密码的用户账号";
+            this.tabPage1.Text = "请输入用户信息";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // txtEmail
@@ -113,7 +113,7 @@ namespace IBE.UI
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.Location = new System.Drawing.Point(5, 96);
+            this.label10.Location = new System.Drawing.Point(37, 96);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(106, 21);
             this.label10.TabIndex = 2;
@@ -182,7 +182,7 @@ namespace IBE.UI
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(3, 157);
+            this.label8.Location = new System.Drawing.Point(44, 157);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(58, 21);
             this.label8.TabIndex = 10;
@@ -193,13 +193,13 @@ namespace IBE.UI
             // 
             this.txtAnswer3.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtAnswer3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtAnswer3.Location = new System.Drawing.Point(75, 157);
+            this.txtAnswer3.Location = new System.Drawing.Point(112, 157);
             this.txtAnswer3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtAnswer3.MinimumSize = new System.Drawing.Size(1, 16);
             this.txtAnswer3.Name = "txtAnswer3";
             this.txtAnswer3.Padding = new System.Windows.Forms.Padding(5);
             this.txtAnswer3.ShowText = false;
-            this.txtAnswer3.Size = new System.Drawing.Size(345, 29);
+            this.txtAnswer3.Size = new System.Drawing.Size(308, 29);
             this.txtAnswer3.TabIndex = 9;
             this.txtAnswer3.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtAnswer3.Watermark = "";
@@ -230,7 +230,7 @@ namespace IBE.UI
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(5, 95);
+            this.label5.Location = new System.Drawing.Point(44, 95);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 21);
             this.label5.TabIndex = 6;
@@ -241,13 +241,13 @@ namespace IBE.UI
             // 
             this.txtAnswer2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtAnswer2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtAnswer2.Location = new System.Drawing.Point(77, 95);
+            this.txtAnswer2.Location = new System.Drawing.Point(114, 95);
             this.txtAnswer2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtAnswer2.MinimumSize = new System.Drawing.Size(1, 16);
             this.txtAnswer2.Name = "txtAnswer2";
             this.txtAnswer2.Padding = new System.Windows.Forms.Padding(5);
             this.txtAnswer2.ShowText = false;
-            this.txtAnswer2.Size = new System.Drawing.Size(345, 29);
+            this.txtAnswer2.Size = new System.Drawing.Size(308, 29);
             this.txtAnswer2.TabIndex = 5;
             this.txtAnswer2.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtAnswer2.Watermark = "";
@@ -278,7 +278,7 @@ namespace IBE.UI
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(3, 34);
+            this.label3.Location = new System.Drawing.Point(44, 34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 21);
             this.label3.TabIndex = 2;
@@ -289,13 +289,13 @@ namespace IBE.UI
             // 
             this.txtAnswer1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtAnswer1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtAnswer1.Location = new System.Drawing.Point(75, 34);
+            this.txtAnswer1.Location = new System.Drawing.Point(112, 34);
             this.txtAnswer1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtAnswer1.MinimumSize = new System.Drawing.Size(1, 16);
             this.txtAnswer1.Name = "txtAnswer1";
             this.txtAnswer1.Padding = new System.Windows.Forms.Padding(5);
             this.txtAnswer1.ShowText = false;
-            this.txtAnswer1.Size = new System.Drawing.Size(345, 29);
+            this.txtAnswer1.Size = new System.Drawing.Size(308, 29);
             this.txtAnswer1.TabIndex = 1;
             this.txtAnswer1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtAnswer1.Watermark = "";
@@ -381,11 +381,21 @@ namespace IBE.UI
             // btnNext
             // 
             this.btnNext.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNext.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(190)))), ((int)(((byte)(40)))));
+            this.btnNext.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(190)))), ((int)(((byte)(40)))));
+            this.btnNext.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(203)))), ((int)(((byte)(83)))));
+            this.btnNext.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(152)))), ((int)(((byte)(32)))));
+            this.btnNext.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(152)))), ((int)(((byte)(32)))));
             this.btnNext.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnNext.Location = new System.Drawing.Point(266, 239);
             this.btnNext.MinimumSize = new System.Drawing.Size(1, 1);
             this.btnNext.Name = "btnNext";
+            this.btnNext.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(190)))), ((int)(((byte)(40)))));
+            this.btnNext.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(203)))), ((int)(((byte)(83)))));
+            this.btnNext.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(152)))), ((int)(((byte)(32)))));
+            this.btnNext.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(152)))), ((int)(((byte)(32)))));
             this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.Style = Sunny.UI.UIStyle.Green;
             this.btnNext.TabIndex = 1;
             this.btnNext.Text = "下一步";
             this.btnNext.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -408,11 +418,21 @@ namespace IBE.UI
             // btnCancel
             // 
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(172)))));
+            this.btnCancel.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(172)))));
+            this.btnCancel.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(203)))), ((int)(((byte)(189)))));
+            this.btnCancel.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(152)))), ((int)(((byte)(138)))));
+            this.btnCancel.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(152)))), ((int)(((byte)(138)))));
             this.btnCancel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnCancel.Location = new System.Drawing.Point(347, 239);
             this.btnCancel.MinimumSize = new System.Drawing.Size(1, 1);
             this.btnCancel.Name = "btnCancel";
+            this.btnCancel.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(172)))));
+            this.btnCancel.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(203)))), ((int)(((byte)(189)))));
+            this.btnCancel.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(152)))), ((int)(((byte)(138)))));
+            this.btnCancel.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(152)))), ((int)(((byte)(138)))));
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Style = Sunny.UI.UIStyle.Colorful;
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "取消";
             this.btnCancel.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));

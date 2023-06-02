@@ -49,6 +49,8 @@ namespace IBE.UI
                 }
                 SessionManager.Manager = manager;
                 FrmManagerMain frm = new FrmManagerMain();
+                this.textBox1.Text = "";
+                this.textBox2.Text = "";
                 frm.Show();
                 Hide();
             }

@@ -56,10 +56,10 @@
             // 
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnCancel.Location = new System.Drawing.Point(170, 392);
+            this.btnCancel.Location = new System.Drawing.Point(174, 384);
             this.btnCancel.MinimumSize = new System.Drawing.Size(1, 1);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(75, 35);
             this.btnCancel.TabIndex = 51;
             this.btnCancel.Text = "取消";
             this.btnCancel.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -68,11 +68,21 @@
             // btnOk
             // 
             this.btnOk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOk.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(190)))), ((int)(((byte)(40)))));
+            this.btnOk.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(190)))), ((int)(((byte)(40)))));
+            this.btnOk.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(203)))), ((int)(((byte)(83)))));
+            this.btnOk.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(152)))), ((int)(((byte)(32)))));
+            this.btnOk.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(152)))), ((int)(((byte)(32)))));
             this.btnOk.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnOk.Location = new System.Drawing.Point(89, 392);
+            this.btnOk.Location = new System.Drawing.Point(93, 384);
             this.btnOk.MinimumSize = new System.Drawing.Size(1, 1);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(75, 23);
+            this.btnOk.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(190)))), ((int)(((byte)(40)))));
+            this.btnOk.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(203)))), ((int)(((byte)(83)))));
+            this.btnOk.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(152)))), ((int)(((byte)(32)))));
+            this.btnOk.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(152)))), ((int)(((byte)(32)))));
+            this.btnOk.Size = new System.Drawing.Size(75, 35);
+            this.btnOk.Style = Sunny.UI.UIStyle.Green;
             this.btnOk.TabIndex = 50;
             this.btnOk.Text = "确认";
             this.btnOk.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -97,7 +107,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.Location = new System.Drawing.Point(12, 351);
+            this.label10.Location = new System.Drawing.Point(35, 348);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(67, 21);
             this.label10.TabIndex = 48;
@@ -124,7 +134,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label11.Location = new System.Drawing.Point(12, 314);
+            this.label11.Location = new System.Drawing.Point(3, 311);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(99, 21);
             this.label11.TabIndex = 46;
@@ -150,7 +160,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(12, 274);
+            this.label7.Location = new System.Drawing.Point(35, 271);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 21);
             this.label7.TabIndex = 44;
@@ -177,7 +187,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(12, 237);
+            this.label8.Location = new System.Drawing.Point(3, 233);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(99, 21);
             this.label8.TabIndex = 42;
@@ -203,7 +213,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label9.Location = new System.Drawing.Point(12, 197);
+            this.label9.Location = new System.Drawing.Point(35, 194);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(67, 21);
             this.label9.TabIndex = 40;
@@ -229,7 +239,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(12, 81);
+            this.label6.Location = new System.Drawing.Point(44, 78);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 21);
             this.label6.TabIndex = 38;
@@ -282,7 +292,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(12, 160);
+            this.label4.Location = new System.Drawing.Point(3, 154);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 21);
             this.label4.TabIndex = 34;
@@ -308,7 +318,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(28, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 21);
             this.label1.TabIndex = 28;
@@ -335,7 +345,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(12, 117);
+            this.label2.Location = new System.Drawing.Point(44, 114);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 21);
             this.label2.TabIndex = 30;
