@@ -112,6 +112,7 @@ namespace IBE.UI
             }
             MyDbContext.Instance.SaveChanges();
             UIMessageBox.Show("注册成功");
+            DialogResult = DialogResult.OK;
             this.Close();
         }
 
