@@ -64,9 +64,9 @@ namespace IBE.UI
             {
                 Directory.CreateDirectory("files");
             }
-            var filecontent = File.ReadAllText(filePath);
+            var filecontent = File.ReadAllBytes(filePath);
             var aesContent = AESHelper.AESEncrypt(filecontent, aesKey);
-            File.WriteAllText(encryptFilePath, aesContent);
+            File.WriteAllBytes(encryptFilePath, aesContent);
             var exchangeFileData = new ExchangeFileData();
             exchangeFileData.DestEmail = id;
             exchangeFileData.Sender = SessionManager.User.Email;
@@ -171,9 +171,9 @@ namespace IBE.UI
             saveFileDialog1.FileName = fileName;
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                var encryptFileContent = File.ReadAllText(item.EncryptFilePath);
+                var encryptFileContent = File.ReadAllBytes(item.EncryptFilePath);
                 var decryptContent = AESHelper.AESDecrypt(encryptFileContent, aesKey);
-                File.WriteAllText(saveFileDialog1.FileName, decryptContent);
+                File.WriteAllBytes(saveFileDialog1.FileName, decryptContent);
                 //  DesHelper.DecryptFile(item.EncryptFilePath, saveFileDialog1.FileName, desKey);
                 UIMessageBox.Show("接收文件成功");
                 item.IsDowload = true;
